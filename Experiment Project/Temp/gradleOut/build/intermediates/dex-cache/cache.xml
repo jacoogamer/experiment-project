@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\nmac\.android\build-cache\9b45ec9b8298d6746b4880e6bbb4f04bfc3d0df1\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="be35cfb98dbf80214072c4eb41da843fb0d4400d">
+        <dex dex="D:\JasonProjects\experiment-project\Experiment Project\Temp\gradleOut\build\intermediates\pre-dexed\release\classes_775b29d2b52cdb03e1b83d5b3116e50435e02d2e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nmac\.android\build-cache\a8177f5a514ba75d7270d9d936cf81ef91dddc00\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3b08b853fe85764387602ff10decaf2b449f4ea2">
+        <dex dex="D:\JasonProjects\experiment-project\Experiment Project\Temp\gradleOut\build\intermediates\pre-dexed\release\classes_b52e63f06d7a83758a03db7adc60df77b0304d11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nmac\.android\build-cache\a8177f5a514ba75d7270d9d936cf81ef91dddc00\output\jars\libs\tango_java_lib.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="dac29b41332a170a55310a99e3e2f3058e3ac419">
+        <dex dex="D:\JasonProjects\experiment-project\Experiment Project\Temp\gradleOut\build\intermediates\pre-dexed\release\tango_java_lib_534c1302e4957cff777dab981a87a20f75957705.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\JasonProjects\experiment-project\Experiment Project\Temp\gradleOut\libs\unity-classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e17d5631193d7daac06cdec36618706f6a20649e">
+        <dex dex="D:\JasonProjects\experiment-project\Experiment Project\Temp\gradleOut\build\intermediates\pre-dexed\debug\unity-classes_d1f1f4da36b72d24ed5bed7da5ab2bc46cf57398.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nmac\.android\build-cache\19fc9bb63062b7d692f1ff278c22ec7da7f53099\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="86661a14ae16b6d6ef1f52fc8c2a1963e9da348b">
+        <dex dex="D:\JasonProjects\experiment-project\Experiment Project\Temp\gradleOut\build\intermediates\pre-dexed\release\classes_81ea46157a017acfd033cf2c121e8fb7857ec202.jar" />
+    </item>
+
+</items>
