@@ -255,6 +255,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 f373f8bc57fbc65ecfd49814cf782145 Assembly-CSharp.dll:.UIDirectionControl
 0d92151c573430dcfe364725b670f5c1 Assembly-CSharp.dll:UnityARInterface.ARController
 e27f917ca40334ee4c23585cd4c2b101 Assembly-CSharp.dll:Mongoose.ARPlaneChooser
+f12e11c5db182dc28151c60e0ac2adea Assembly-CSharp.dll:.ARPlaneFind
 f671a42aea5f34fec6a4450a3668c615 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingProfile
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MeasureRenderBounds
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityEngine.XR.iOS.UnityARUserAnchorComponent
@@ -274,6 +275,7 @@ e151305212b6d9dd07d68e464b461420 Assembly-CSharp.dll:Lean.Touch.LeanFingerTap
 48b4f2bb90cadfa8931f7d8baac4245e Assembly-CSharp.dll:.ColorSlider
 48aac773de77753c007e6b8e5fa95d61 Assembly-CSharp.dll:.ColorPresets
 5652388a27686e3b4c5bbff6e0e7c256 Assembly-CSharp.dll:Lean.Touch.LeanFingerUp
+56e0f88d4c62bd1d2170d35e401a29f1 Assembly-CSharp.dll:.DestroyParentCube
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityStandardAssets.Utility.FPSCounter
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityARInterface.ARLightEstimate
 54d74e58443c4a1cdc6a934a1c645ed6 Assembly-CSharp.dll:UnityARInterface.ARBallMover
@@ -290,5 +292,4 @@ c7b4e1cefa38e05c60ad69dee88481d8 Assembly-CSharp.dll:Lean.Touch.LeanSelectableRe
 391d84b859f3b155fe38f54bfce79162 Assembly-CSharp.dll:.UnityPointCloudExample
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UnityARCameraNearFar
 0f3d4bb7128a287827d041c696039525 Assembly-CSharp.dll:UnityStandardAssets.Utility.AutoMobileShaderSwitch
-f12e11c5db182dc28151c60e0ac2adea Assembly-CSharp.dll:.ARPlaneFind
-56e0f88d4c62bd1d2170d35e401a29f1 Assembly-CSharp.dll:.DestroyParentCube
+16cb7dd035ef5b98afc0da03c0870c97 Assembly-CSharp.dll:.ScrollItemManager
