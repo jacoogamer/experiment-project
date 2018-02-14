@@ -48,8 +48,19 @@ namespace UnityARInterface
             go.transform.localPosition = plane.center;
             go.transform.localRotation = plane.rotation;
             go.transform.localScale = new Vector3(plane.extents.x, 1f, plane.extents.y);
-        }
+            Vector3 objectSize = Vector3.Scale(go.transform.localScale, go.GetComponentInChildren<MeshFilter>().mesh.bounds.size);
+            var emptyObj = new GameObject();
+            emptyObj.transform.parent = go.transform;
+            emptyObj.transform.position = go.transform.position;
+            emptyObj.transform.LookAt(Camera.main.transform.position);
+            emptyObj.AddComponent<LookAtCamera>();
+            emptyObj.AddComponent<TextMesh>().text = objectSize.ToString();
+            emptyObj.GetComponent<TextMesh>().characterSize = 0.3f;
+            emptyObj.GetComponent<TextMesh>().color = Color.red;
+            Debug.Log(objectSize);
 
+        }
+       
         protected virtual void PlaneAddedHandler(BoundedPlane plane)
         {
             if (m_PlanePrefab)
