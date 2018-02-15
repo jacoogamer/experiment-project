@@ -4,6 +4,7 @@ Assets/Scenes/Main.unity
 SceneListEnd?
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityEngine.XR.iOS.UnityARKitControl
 12096ddf91bc99172a48b0419861fd00 Assembly-CSharp.dll:.PointCloudParticleExample
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.LookAtCamera
 bf50613a4242fed56869c6b2595dc62a Assembly-CSharp.dll:UnityARInterface.ARBallMaker
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 970a95104359198fe1a98ef48655de8c UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -249,4 +250,3 @@ c7b4e1cefa38e05c60ad69dee88481d8 Assembly-CSharp.dll:Lean.Touch.LeanSelectableRe
 6c6b93abb40645ac770be8b9bea7bb4f Assembly-CSharp.dll:UnityARInterface.ARPointCloudVisualizer
 391d84b859f3b155fe38f54bfce79162 Assembly-CSharp.dll:.UnityPointCloudExample
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UnityARCameraNearFar
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.LookAtCamera
