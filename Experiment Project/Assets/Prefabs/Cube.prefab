@@ -226,7 +226,7 @@ MonoBehaviour:
   RequiredFingerCount: 0
   RequiredSelectable: {fileID: 114248820799380690}
   Camera: {fileID: 0}
-  RotateAxis: {x: 1, y: 1, z: 1}
+  RotateAxis: {x: 0, y: 1, z: 0}
   Relative: 0
 --- !u!114 &114476156435070014
 MonoBehaviour:

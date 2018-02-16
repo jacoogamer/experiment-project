@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 namespace UnityARInterface
 {
     public class ARPlaneVisualizer : ARBase
@@ -50,15 +50,21 @@ namespace UnityARInterface
             go.transform.localRotation = plane.rotation;
             go.transform.localScale = new Vector3(plane.extents.x, 1f, plane.extents.y);
             Vector3 objectSize = Vector3.Scale(go.transform.localScale, go.GetComponentInChildren<MeshFilter>().mesh.bounds.size);
-            
-                var emptyObj = new GameObject();
-                emptyObj.transform.parent = go.transform;
-                emptyObj.transform.position = go.transform.position;
-                emptyObj.transform.LookAt(Camera.main.transform.position);
-                emptyObj.AddComponent<LookAtCamera>();
-                emptyObj.AddComponent<TextMesh>().text = objectSize.x.ToString("f1") + "cm Width," + objectSize.y.ToString("f1") + "cm Tall," + objectSize.z.ToString("f1") + "cm Z-Axis";
-                emptyObj.GetComponent<TextMesh>().characterSize = 0.1f;
-                emptyObj.GetComponent<TextMesh>().color = Color.red;
+
+            foreach( Text t in GetComponentsInChildren<Text>())
+            {
+                if (t.gameObject.name == "Tall")
+                    t.text = objectSize.y.ToString("f1") + "cm";
+                if (t.gameObject.name == "Width")
+                    t.text = objectSize.x.ToString("f1") + "cm";
+                if (t.gameObject.name == "Z-Axis")
+                    t.text = objectSize.z.ToString("f1") + "cm";
+            }
+                
+               
+               
+                
+               
                 Debug.Log(objectSize);
             
 

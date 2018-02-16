@@ -9,24 +9,26 @@ public class ScrollItemManager : MonoBehaviour
     public GameObject[] ArrayOfScrollButtons;
     public GameObject CubePrefab;
     public Material CubeColor;
+    public Animator ScrollViewTop;
     private void Start()
     {
         CloseButton.SetActive(false);
         OpenButton.SetActive(true);
-        ScrollListTop.SetActive(false);
+       
 
-        
+        ScrollViewTop.SetBool("InScroll", false);
+
     }
     public void OpenMenu()
     {
         OpenButton.SetActive(false);
-        ScrollListTop.SetActive(true);
+        ScrollViewTop.SetBool("InScroll", true);
         CloseButton.SetActive(true);
         
     }
     public void CloseMenu()
     {
-        ScrollListTop.SetActive(false);
+        ScrollViewTop.SetBool("InScroll", false);
         OpenButton.SetActive(true);
         CloseButton.SetActive(false);
     }
