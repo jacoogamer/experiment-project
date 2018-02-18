@@ -54,11 +54,11 @@ namespace UnityARInterface
             foreach( Text t in GetComponentsInChildren<Text>())
             {
                 if (t.gameObject.name == "Tall")
-                    t.text = objectSize.y.ToString("f1") + "cm";
+                    t.text = objectSize.y.ToString("f1") + "cm Tall";
                 if (t.gameObject.name == "Width")
-                    t.text = objectSize.x.ToString("f1") + "cm";
+                    t.text = objectSize.x.ToString("f1") + "cm Width";
                 if (t.gameObject.name == "Z-Axis")
-                    t.text = objectSize.z.ToString("f1") + "cm";
+                    t.text = objectSize.z.ToString("f1") + "cm Z-Axis";
             }
                 
                
