@@ -110,7 +110,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 72
+  controlID: 139
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 140
+  controlID: 29
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -180,8 +180,8 @@ MonoBehaviour:
     y: 333
     width: 969
     height: 614
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 17}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 29
+  controlID: 74
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -363,7 +363,7 @@ MonoBehaviour:
       width: 1433.7118
       height: 854
     m_MinimalGUI: 1
-  m_defaultScale: 1
+  m_defaultScale: 0.67447305
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
   m_LastWindowPixelSize: {x: 967, y: 593}
@@ -431,7 +431,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: -0, y: 0, z: -0, w: -1}
   m_Size:
     m_Target: 357.4606
     speed: 2
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
   m_LastLockedObject: {fileID: 0}
-  m_ViewIsLockedToObject: 1
+  m_ViewIsLockedToObject: 0
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -627,23 +627,23 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 162e0000
-    m_LastClickedID: 11798
-    m_ExpandedIDs: 9efbfffff4ffffff00000000322f0000522f0000
+    m_SelectedIDs: ce360000
+    m_LastClickedID: 14030
+    m_ExpandedIDs: 9271ffff8a72ffff5c74ffff9efbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: CloseMenu
-      m_OriginalName: CloseMenu
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 11798
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -691,19 +691,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/UnityARKitPlugin/ARKitRemote
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/UnityARKitPlugin/ARKitRemote
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\JasonProjects\experiment-project\Experiment Project
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 70290000
-    m_LastClickedID: 10608
-    m_ExpandedIDs: 0000000070290000a4290000de290000022b0000062b0000402b0000442b00007c2b00009c2b0000042c0000082c0000382c0000d82c0000fc2f000000ca9a3bffffff7f
+    m_SelectedIDs: d82a0000
+    m_LastClickedID: 10968
+    m_ExpandedIDs: 0000000070290000a4290000de290000022b0000062b0000402b0000442b00007c2b00009c2b0000062c00000a2c0000bc2c0000dc2c00000030000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -731,7 +731,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000070290000a4290000de290000022b0000062b0000402b0000442b00007c2b00009c2b0000042c0000082c0000302c0000382c0000d82c0000fc2f0000
+    m_ExpandedIDs: 0000000070290000a4290000de290000022b0000062b0000402b0000442b00007c2b00009c2b0000062c00000a2c00003a2c0000dc2c000000300000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -758,22 +758,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000a67d0000b67d0000be340000367e000032580000705f00005e4800008239000088560000564e0000606200005a3e0000e8da0000323e00005e3e0000862f0000743f080044340000ac5a0000fc670000bc380000de5200002a7e0100ce600000fa390000a85100004c5d010090570100383e0000ba3900003e280000c0280000dc500000ee2c0000e4710b003c0700008ec34800284900002a4900005cd700002c490000a05300004e36000066540000227a000040490000525f00006c430000603f0000686900006e7000003e6b0000683b000006670000b25e0000968500009a980000385f000096620000545300002a640000f63c00006264000056640000527200008a620000e84f000046370000fc050000ba4400004ef70500c8160600765a06003e410000b0490000b8390000203d0100942d00006c470000d2eb0000a4560000563900004454000038440000b62d000082810100664b0000aeb8faffa473e4ffb6290100904e0000d85300004839000068480000a42b0000124d00002c56000058ba020082570000a22c000062b7fbff385600000c5b0000dc4d0000e44a0000debaf3ff84baf2ffe6490000b6cc00006c4100008a5300008c41000082bf000010060500ea3400001414fcff2e3ffbff3a1bfcffb24200008a4c0000d6420000a23900002a4de0ff10550000fa420000945d00007a710000285d0000345800009c66000050b3f8ff2244000070d801001aabfefffe01fdff8ed1fafffe30000068530000dc3b0000e0460000605d00003a6700007c2e0000f2670000ec2b0000e85600000a550000662c0000a0cafcff7a580000ea2c0000ee2b0000000000007c2a0000c62a00007e2a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: ARKITREMOTE
+      m_OriginalName: ARKITREMOTE
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 11168
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:

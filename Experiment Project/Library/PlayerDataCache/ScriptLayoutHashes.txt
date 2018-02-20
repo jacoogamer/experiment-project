@@ -250,3 +250,4 @@ c7b4e1cefa38e05c60ad69dee88481d8 Assembly-CSharp.dll:Lean.Touch.LeanSelectableRe
 6c6b93abb40645ac770be8b9bea7bb4f Assembly-CSharp.dll:UnityARInterface.ARPointCloudVisualizer
 391d84b859f3b155fe38f54bfce79162 Assembly-CSharp.dll:.UnityPointCloudExample
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UnityARCameraNearFar
+8f1552ee6e46ab879db254ce1f7081f7 Assembly-CSharp.dll:Entropedia.Sun
