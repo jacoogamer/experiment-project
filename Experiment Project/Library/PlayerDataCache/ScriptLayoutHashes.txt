@@ -154,6 +154,7 @@ d89abe5e16c92c7b4fd2d0221eb92e76 Assembly-CSharp.dll:UnityARInterface.ARRemoteEd
 a3ed62503381a62c3e0e9e0b1f63872c Assembly-CSharp.dll:.RemoveRigidbody
 6d618531167cbc047d87ea0faec333a8 Assembly-CSharp.dll:.GenerateImageAnchor
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityEngine.XR.iOS.ConnectToEditor
+1986d7220b312c0fcd8dd5a4d0f0dd2c Assembly-CSharp.dll:.DebugPlaneParticles
 0352182229dc15ceae98dd2533712b4a Assembly-CSharp.dll:GoogleARCore.ARCoreBackgroundRenderer
 e1f1285d86f3a1745afc7444b310fb42 Assembly-CSharp.dll:Lean.Touch.LeanPitchYaw
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Lean.Touch.LeanOpenUrl
@@ -251,7 +252,7 @@ e151305212b6d9dd07d68e464b461420 Assembly-CSharp.dll:Lean.Touch.LeanFingerTap
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityARInterface.ARBase
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SyncPointsHolder
 d49c4dceabcd0f316458072a477aeae8 Assembly-CSharp.dll:Lean.Touch.LeanSpawn
-bf8eff93f6e3e15833b15872185e3fe2 Assembly-CSharp.dll:.SetGazeOnARPlane
+211f24ce0ceede872d6c8392cb65e5b4 Assembly-CSharp.dll:.SetGazeOnARPlane
 1599adf36a90c6dd91987c85a00ee885 Assembly-CSharp.dll:Lean.Touch.LeanFingerHeld
 05012a5c4e5496c7da7c6bf88a0eb92a Assembly-CSharp.dll:Lean.Touch.LeanPitchYawSmooth
 c7b4e1cefa38e05c60ad69dee88481d8 Assembly-CSharp.dll:Lean.Touch.LeanSelectableRendererColor
@@ -261,4 +262,3 @@ c7b4e1cefa38e05c60ad69dee88481d8 Assembly-CSharp.dll:Lean.Touch.LeanSelectableRe
 eb4fd2b7e0cd698b07603d3e2b00ab7c Assembly-CSharp.dll:.ARKitPlaneMeshRender
 391d84b859f3b155fe38f54bfce79162 Assembly-CSharp.dll:.UnityPointCloudExample
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UnityARCameraNearFar
-1986d7220b312c0fcd8dd5a4d0f0dd2c Assembly-CSharp.dll:.DebugPlaneParticles
