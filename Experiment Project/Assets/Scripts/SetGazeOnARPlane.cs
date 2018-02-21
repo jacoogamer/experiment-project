@@ -15,7 +15,7 @@ public class SetGazeOnARPlane : MonoBehaviour {
    
     // Use this for initialization
     void Start () {
-       
+        lrMeasument.SetActive(false);
 
     }
 	
@@ -43,8 +43,9 @@ public class SetGazeOnARPlane : MonoBehaviour {
         {
             FakeRecticleImage.SetActive(true);
             ReticleTransform.SetActive(false);
-
             
+
+
                 MeasureButton.SetActive(false);
             
 
@@ -57,6 +58,8 @@ public class SetGazeOnARPlane : MonoBehaviour {
     public GameObject PosFirst2,PosFirst;
     public Text Measurement;
     public GameObject MeasureButton;
+    private GameObject clonels;
+    public GameObject lrMeasument;
     public void CalculateSize()
     {
         RaycastHit hitInfo;
@@ -68,7 +71,8 @@ public class SetGazeOnARPlane : MonoBehaviour {
                     PosFirst2.transform.position = hitInfo.point;
                     Vector3 rawSize = PosFirst.transform.position - PosFirst2.transform.position;
                     Vector3 CovertData = new Vector3 (Mathf.Abs(rawSize.x * 10), Mathf.Abs(rawSize.y * 10), Mathf.Abs(rawSize.z * 10));
-                    
+                clonels.SetActive(true);
+                clonels.GetComponent<LineRenderer>().SetPosition(1, hitInfo.point);
                     Debug.Log(CovertData + "rawSize");
                     clickNum = true;
                     Measurement.text = CovertData.ToString();
@@ -76,6 +80,9 @@ public class SetGazeOnARPlane : MonoBehaviour {
                 {
                     PosFirst.transform.position = hitInfo.point;
                     clickNum = false;
+                    clonels = Instantiate(lrMeasument, hitInfo.point,Quaternion.identity);
+                clonels.SetActive(false);
+                    clonels.GetComponent<LineRenderer>().SetPosition(0, hitInfo.point);
                 }
         }
         
