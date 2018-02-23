@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43789434, g: 0.48582995, b: 0.56610996, a: 1}
+  m_IndirectSpecularColor: {r: 0.43859026, g: 0.4867062, b: 0.5669798, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -280,7 +280,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: e84be04171352498ca16f0b156930511, type: 2}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -305,7 +305,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.06
+    widthMultiplier: 0.005
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1159,7 +1159,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 540124178}
-  m_LocalRotation: {x: 0.2135076, y: 0.7322765, z: -0.5898553, w: 0.26505923}
+  m_LocalRotation: {x: 0.27428865, y: 0.70964557, z: -0.5393949, w: 0.3608631}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1179,8 +1179,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longitude: 0
   latitude: 0
-  hour: 17
-  minutes: 11
+  hour: 16
+  minutes: 52
   timeSpeed: 1
   frameSteps: 1
 --- !u!1 &597589926
@@ -3983,7 +3983,7 @@ TextMesh:
   m_GameObject: {fileID: 1689011222}
   m_Text: Hello World
   m_OffsetZ: 0
-  m_CharacterSize: 1.3
+  m_CharacterSize: 1.7
   m_LineSpacing: 1
   m_Anchor: 1
   m_Alignment: 0
@@ -4561,7 +4561,7 @@ RectTransform:
   m_GameObject: {fileID: 1905472755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.58}
-  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
+  m_LocalScale: {x: 0.0005, y: 0.0005, z: 0.0005}
   m_Children: []
   m_Father: {fileID: 2075792096}
   m_RootOrder: 0
@@ -4583,14 +4583,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d0b6e1ff0f690554e814897f3e0d32c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dbe1d774ff25b114d8ec27b37be0b75e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4938,7 +4938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2031921904
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4947,7 +4947,7 @@ RectTransform:
   m_GameObject: {fileID: 2031921903}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.58}
-  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
+  m_LocalScale: {x: 0.0005, y: 0.0005, z: 0.0005}
   m_Children: []
   m_Father: {fileID: 597589927}
   m_RootOrder: 0
@@ -4976,7 +4976,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d0b6e1ff0f690554e814897f3e0d32c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac8bcadff2e7c2d429ef5cac5b94b19a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

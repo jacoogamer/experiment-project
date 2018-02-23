@@ -16,7 +16,7 @@ public class SetGazeOnARPlane : MonoBehaviour {
     // Use this for initialization
     void Start () {
         lrMeasument.SetActive(false);
-
+        ReticleTransform.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -33,20 +33,21 @@ public class SetGazeOnARPlane : MonoBehaviour {
         if (Physics.Raycast(Camera.main.transform.position,Camera.main.transform.forward,out hitInfo,1000F, mask))
         {
             MeasureButton.SetActive(true);
-            ReticleTransform.transform.position = hitInfo.point;
-            ReticleTransform.transform.rotation = Quaternion.FromToRotation(Vector3.forward, hitInfo.normal);
-            FakeRecticleImage.SetActive(false);
-            ReticleTransform.SetActive(true);
-
+           // ReticleTransform.transform.position = hitInfo.point;
+            //ReticleTransform.transform.rotation = Quaternion.FromToRotation(Vector3.forward, hitInfo.normal);
+            //FakeRecticleImage.SetActive(true);
+            //ReticleTransform.SetActive(true);
+            
+            FakeRecticleImage.SetActive(true);
         }
         else
         {
-            FakeRecticleImage.SetActive(true);
-            ReticleTransform.SetActive(false);
-            
+            //FakeRecticleImage.SetActive(true);
+            //ReticleTransform.SetActive(false);
+            FakeRecticleImage.GetComponent<Image>().color = Color.white;
+            FakeRecticleImage.SetActive(false);
 
-
-                MeasureButton.SetActive(false);
+            MeasureButton.SetActive(false);
             
 
 
@@ -86,13 +87,15 @@ public class SetGazeOnARPlane : MonoBehaviour {
                 }else if (clickNum == 2)
                 {
                     PosFirst2.transform.position = hitInfo.point;
-                    Vector3 rawSize = PosFirst.transform.position - PosFirst2.transform.position;
-                    Vector3 CovertData = new Vector3(Mathf.Abs(rawSize.x * 10 * 2.54f), Mathf.Abs(rawSize.y * 10 * 2.54f), Mathf.Abs(rawSize.z * 10 * 2.54f));
+                    float rawSize = Vector3.Distance(PosFirst.transform.position , PosFirst2.transform.position);
+                    
 
-                    Debug.Log(CovertData + "rawSize");
-                clonels.GetComponentInChildren<TextMesh>().text = "(" +  CovertData.x.ToString("f1") + "cm Width," + CovertData.y.ToString("f1") + "cm Height,"+ CovertData.z.ToString("f1") + "cm Lenght)";
-                    clonels.GetComponentInChildren<TextMesh>().transform.localPosition = Vector3.zero;
-                
+                    Debug.Log((rawSize = rawSize * 10) + "rawSize");
+                //clonels.GetComponentInChildren<TextMesh>().text = "(" +  CovertData.x.ToString("f1") + "cm Width," + CovertData.y.ToString("f1") + "cm Height,"+ CovertData.z.ToString("f1") + "cm Lenght)";
+                clonels.GetComponentInChildren<TextMesh>().text = rawSize.ToString("f1") + "cm";
+
+                clonels.GetComponentInChildren<TextMesh>().transform.position = clonels.GetComponent<LineRenderer>().bounds.center;
+
                 clonels.SetActive(true);
                     clonels.GetComponent<LineRenderer>().SetPosition(1, hitInfo.point);
                    
