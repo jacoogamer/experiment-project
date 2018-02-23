@@ -11,12 +11,13 @@ public class SetGazeOnARPlane : MonoBehaviour {
     public LayerMask mask;
    
     public Vector3 OrginalRotation;
-    
+    public Sprite Square, TargetIcon;
    
     // Use this for initialization
     void Start () {
         lrMeasument.SetActive(false);
-        ReticleTransform.SetActive(false);
+       
+        
     }
 	
 	// Update is called once per frame
@@ -33,20 +34,20 @@ public class SetGazeOnARPlane : MonoBehaviour {
         if (Physics.Raycast(Camera.main.transform.position,Camera.main.transform.forward,out hitInfo,1000F, mask))
         {
             MeasureButton.SetActive(true);
-           // ReticleTransform.transform.position = hitInfo.point;
+            // ReticleTransform.transform.position = hitInfo.point;
             //ReticleTransform.transform.rotation = Quaternion.FromToRotation(Vector3.forward, hitInfo.normal);
             //FakeRecticleImage.SetActive(true);
             //ReticleTransform.SetActive(true);
-            
-            FakeRecticleImage.SetActive(true);
+            FakeRecticleImage.GetComponent<Image>().sprite = TargetIcon;
+            FakeRecticleImage.transform.localScale = new Vector3(0.0005f, 0.0005f, 0.0005f);
+           // FakeRecticleImage.SetActive(true);
         }
         else
         {
-            //FakeRecticleImage.SetActive(true);
-            //ReticleTransform.SetActive(false);
-            FakeRecticleImage.GetComponent<Image>().color = Color.white;
-            FakeRecticleImage.SetActive(false);
 
+
+            FakeRecticleImage.GetComponent<Image>().sprite = Square;
+            FakeRecticleImage.transform.localScale = new Vector3(0.00005f, 0.00005f, 0.00005f);
             MeasureButton.SetActive(false);
             
 
