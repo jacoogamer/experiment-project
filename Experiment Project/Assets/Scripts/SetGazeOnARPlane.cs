@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityARInterface;
 using UnityEngine;
 using UnityEngine.UI;
 public class SetGazeOnARPlane : MonoBehaviour {
@@ -31,7 +32,8 @@ public class SetGazeOnARPlane : MonoBehaviour {
     {
 
         RaycastHit hitInfo;
-        if (Physics.Raycast(Camera.main.transform.position,Camera.main.transform.forward,out hitInfo,1000F, mask))
+
+        if ((Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, float.MaxValue, mask) || (clickNum == 2)))
         {
             MeasureButton.SetActive(true);
             // ReticleTransform.transform.position = hitInfo.point;
@@ -40,8 +42,9 @@ public class SetGazeOnARPlane : MonoBehaviour {
             //ReticleTransform.SetActive(true);
             FakeRecticleImage.GetComponent<Image>().sprite = TargetIcon;
             FakeRecticleImage.transform.localScale = new Vector3(0.0005f, 0.0005f, 0.0005f);
-           // FakeRecticleImage.SetActive(true);
+            // FakeRecticleImage.SetActive(true);
         }
+
         else
         {
 
@@ -49,10 +52,11 @@ public class SetGazeOnARPlane : MonoBehaviour {
             FakeRecticleImage.GetComponent<Image>().sprite = Square;
             FakeRecticleImage.transform.localScale = new Vector3(0.00005f, 0.00005f, 0.00005f);
             MeasureButton.SetActive(false);
-            
+
 
 
         }
+
     }
 
     public Vector3 Measurements;
@@ -62,7 +66,7 @@ public class SetGazeOnARPlane : MonoBehaviour {
     public GameObject MeasureButton;
     private GameObject clonels;
     public GameObject lrMeasument;
-
+    private ARInterface.PointCloud m_PointCloud;
     public void ClickOnMeasurmentButton()
     {
         if (clickNum == 0)
@@ -71,43 +75,57 @@ public class SetGazeOnARPlane : MonoBehaviour {
             clickNum = 0;
     }
 
-
+    RaycastHit hitInfo;
+    RaycastHit AllhitsInfo;
+    
     public void CalculateSize()
     {
-        RaycastHit hitInfo;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 1000F, mask))
+
+       
+
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, float.MaxValue, mask))
         {
-           
+
             if (clickNum == 1)
-                {
-                    PosFirst.transform.position = hitInfo.point;
-                    clickNum = 2;
-                    clonels = Instantiate(lrMeasument, hitInfo.point,Quaternion.identity);
+            {
+
+                PosFirst.transform.position = hitInfo.point;
+
+                
+
+                clickNum = 2;
+                clonels = Instantiate(lrMeasument, hitInfo.point, Quaternion.identity);
                 clonels.SetActive(false);
-                    clonels.GetComponent<LineRenderer>().SetPosition(0, hitInfo.point);
-                }else if (clickNum == 2)
-                {
-                    PosFirst2.transform.position = hitInfo.point;
-                    float rawSize = Vector3.Distance(PosFirst.transform.position , PosFirst2.transform.position);
-                    
+                clonels.GetComponent<LineRenderer>().SetPosition(0, PosFirst.transform.position);
+            }
 
-                    Debug.Log((rawSize = rawSize * 10) + "rawSize");
-                //clonels.GetComponentInChildren<TextMesh>().text = "(" +  CovertData.x.ToString("f1") + "cm Width," + CovertData.y.ToString("f1") + "cm Height,"+ CovertData.z.ToString("f1") + "cm Lenght)";
-                clonels.GetComponentInChildren<TextMesh>().text = rawSize.ToString("f1") + "cm";
-
-                clonels.GetComponentInChildren<TextMesh>().transform.position = clonels.GetComponent<LineRenderer>().bounds.center;
-
-                clonels.SetActive(true);
-                    clonels.GetComponent<LineRenderer>().SetPosition(1, hitInfo.point);
-                   
-                }
         }
-        
-
-            
 
 
-        
+
+
+        if (clickNum == 2)
+        {
+
+            PosFirst2.transform.position = hitInfo.point;
+
+
+            float rawSize = Vector3.Distance(PosFirst.transform.position, PosFirst2.transform.position);
+
+
+            Debug.Log((rawSize = rawSize * 100) + "rawSize");
+            //clonels.GetComponentInChildren<TextMesh>().text = "(" +  CovertData.x.ToString("f1") + "cm Width," + CovertData.y.ToString("f1") + "cm Height,"+ CovertData.z.ToString("f1") + "cm Lenght)";
+            clonels.GetComponentInChildren<TextMesh>().text = rawSize.ToString("f1") + "cm";
+
+            clonels.GetComponentInChildren<TextMesh>().transform.position = clonels.GetComponent<LineRenderer>().bounds.center;
+
+            clonels.SetActive(true);
+            clonels.GetComponent<LineRenderer>().SetPosition(1, PosFirst2.transform.position);
+
+        }
+
+
+
 
     }
 }

@@ -6,20 +6,21 @@ public class DebugPlaneParticles : MonoBehaviour {
     public Toggle DebugToggle;
     GameObject[] clone;
     public GameObject ArRoot;
+    public Material YellowParticles;
     void Start ()
     {
         DebugToggle.isOn = false;
 
     }
-	
-	
-	void Update ()
+
+
+    void Update()
     {
 
-        if(DebugToggle.isOn == true)
+        if (DebugToggle.isOn == true)
         {
             clone = GameObject.FindGameObjectsWithTag("ArPlane");
-            ArRoot.GetComponent<ARPointCloudVisualizer>().m_MaxPointsToShow = 100;
+            YellowParticles.SetColor("_TintColor", new Color32(255, 255, 0, 111));
             foreach (GameObject obj in clone)
             {
                 obj.GetComponent<MeshRenderer>().enabled = true;
@@ -28,7 +29,7 @@ public class DebugPlaneParticles : MonoBehaviour {
         else if (DebugToggle.isOn == false)
         {
             clone = GameObject.FindGameObjectsWithTag("ArPlane");
-            ArRoot.GetComponent<ARPointCloudVisualizer>().m_MaxPointsToShow = 0;
+            YellowParticles.SetColor("_TintColor", new Color32(255, 255, 0, 0));
             foreach (GameObject obj in clone)
             {
                 obj.GetComponent<MeshRenderer>().enabled = false;

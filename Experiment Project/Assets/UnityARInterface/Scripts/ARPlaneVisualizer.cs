@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 namespace UnityARInterface
 {
     public class ARPlaneVisualizer : ARBase
@@ -31,7 +32,6 @@ namespace UnityARInterface
             ARInterface.planeRemoved -= PlaneRemovedHandler;
         }
 
-        
         protected virtual void CreateOrUpdateGameObject(BoundedPlane plane)
         {
             GameObject go;
@@ -51,7 +51,7 @@ namespace UnityARInterface
             go.transform.localScale = new Vector3(plane.extents.x, 1f, plane.extents.y);
             Vector3 objectSize = Vector3.Scale(go.transform.localScale, go.GetComponentInChildren<MeshFilter>().mesh.bounds.size);
 
-            foreach( Text t in GetComponentsInChildren<Text>())
+            foreach (Text t in GetComponentsInChildren<Text>())
             {
                 if (t.gameObject.name == "Tall")
                     t.text = objectSize.y.ToString("f1") + "cm Tall";
@@ -60,16 +60,16 @@ namespace UnityARInterface
                 if (t.gameObject.name == "Z-Axis")
                     t.text = objectSize.z.ToString("f1") + "cm Z-Axis";
             }
-                
-               
-               
-                
-               
-                Debug.Log(objectSize);
-            
+
+
+
+
+
+            Debug.Log(objectSize);
+
 
         }
-       
+
         protected virtual void PlaneAddedHandler(BoundedPlane plane)
         {
             if (m_PlanePrefab)

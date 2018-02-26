@@ -38,7 +38,8 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4380438, g: 0.48602027, b: 0.5662965, a: 1}
+  m_IndirectSpecularColor: {r: 0.0040007816, g: 0.0002182428, b: 0.000000051822756,
+    a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -428,7 +429,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &221001709
 GameObject:
@@ -950,7 +951,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &457015152
 GameObject:
@@ -1127,7 +1128,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1159,7 +1160,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 540124178}
-  m_LocalRotation: {x: -0.24234273, y: 0.72105134, z: -0.57303154, w: -0.30494228}
+  m_LocalRotation: {x: 0.24065918, y: 0.7142761, z: 0.58877265, w: -0.29195836}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1179,8 +1180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longitude: 0
   latitude: 0
-  hour: 18
-  minutes: 21
+  hour: 5
+  minutes: 11
   timeSpeed: 1
   frameSteps: 1
 --- !u!1 &597589926
@@ -1295,7 +1296,7 @@ MonoBehaviour:
   OrginalPosition: {x: -215.01, y: -344.0043, z: 0.58}
   mask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 2048
   OrginalRotation: {x: 0, y: 0, z: 0}
   Square: {fileID: 21300000, guid: 9436837637cf4b1409ee906bc74201a6, type: 3}
   TargetIcon: {fileID: 21300000, guid: dbe1d774ff25b114d8ec27b37be0b75e, type: 3}
@@ -1684,6 +1685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugToggle: {fileID: 723423529}
   ArRoot: {fileID: 1932185251}
+  YellowParticles: {fileID: 2100000, guid: f7cffc03fadd142ea81401e16399833e, type: 2}
 --- !u!1 &757537923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,6 +1822,34 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0.751724, b: 1, a: 0.5}
   m_EffectDistance: {x: 20.58, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!1 &783428813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 783428814}
+  m_Layer: 0
+  m_Name: CloneCubes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &783428814
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 783428813}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.41746116, y: -0.015211284, z: 0.49}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &784112760
 GameObject:
   m_ObjectHideFlags: 0
@@ -3761,6 +3791,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1561799402
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4866787543677580, guid: b824e8e8d280517438cba609a35a93d3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.41746116
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866787543677580, guid: b824e8e8d280517438cba609a35a93d3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.015211284
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866787543677580, guid: b824e8e8d280517438cba609a35a93d3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866787543677580, guid: b824e8e8d280517438cba609a35a93d3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866787543677580, guid: b824e8e8d280517438cba609a35a93d3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866787543677580, guid: b824e8e8d280517438cba609a35a93d3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866787543677580, guid: b824e8e8d280517438cba609a35a93d3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866787543677580, guid: b824e8e8d280517438cba609a35a93d3, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b824e8e8d280517438cba609a35a93d3, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1573511506
 Prefab:
   m_ObjectHideFlags: 0
@@ -3798,7 +3870,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4461716624848968, guid: cf498fc35b538884db557f7a9a2c0ef9, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1248447649449928, guid: cf498fc35b538884db557f7a9a2c0ef9, type: 2}
       propertyPath: m_IsActive
@@ -4641,6 +4713,7 @@ MonoBehaviour:
   m_PlaneDetection: 1
   m_LightEstimation: 1
   m_PointCloud: 1
+  m_BackgroundRendering: 1
   m_Scale: 1
   pointOfInterest: {x: 0, y: 0, z: 0}
   m_SendVideo: 1
@@ -4659,6 +4732,7 @@ MonoBehaviour:
   m_PlaneDetection: 1
   m_LightEstimation: 1
   m_PointCloud: 1
+  m_BackgroundRendering: 1
   m_Scale: 1
   pointOfInterest: {x: 0, y: 0, z: 0}
 --- !u!114 &1932185254
@@ -4701,6 +4775,8 @@ MonoBehaviour:
     type: 2}
   m_MaxPointsToShow: 100
   m_ParticleSize: 0.04
+  PointsCube: {fileID: 1527534415599820, guid: b824e8e8d280517438cba609a35a93d3, type: 2}
+  CloneCubes: {fileID: 783428813}
 --- !u!4 &1932185257
 Transform:
   m_ObjectHideFlags: 0

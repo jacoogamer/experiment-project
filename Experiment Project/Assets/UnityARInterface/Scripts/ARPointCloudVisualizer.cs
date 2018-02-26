@@ -17,7 +17,7 @@ namespace UnityARInterface
         private ParticleSystem.Particle [] m_Particles;
         private ParticleSystem.Particle[] m_NoParticles;
         private ARInterface.PointCloud m_PointCloud;
-
+        public GameObject PointsCube, CloneCubes;
         private void OnDisable()
         {
             m_ParticleSystem.SetParticles(m_NoParticles, 1);
@@ -47,6 +47,8 @@ namespace UnityARInterface
                     m_Particles[i].position = m_PointCloud.points[i] * scale;
                     m_Particles[i].startColor = new Color(1.0f, 1.0f, 1.0f);
                     m_Particles[i].startSize = m_ParticleSize * scale;
+                    GameObject clone = Instantiate(PointsCube, m_PointCloud.points[i] * scale, Quaternion.identity);
+                    clone.transform.parent = CloneCubes.transform;
                 }
 
                 m_ParticleSystem.SetParticles(m_Particles, numParticles);
