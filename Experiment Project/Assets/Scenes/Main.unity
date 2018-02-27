@@ -38,13 +38,17 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.0040007816, g: 0.0002182428, b: 0.000000051822756,
+=======
+  m_IndirectSpecularColor: {r: 0.0048583946, g: 0.00053976267, b: 0.000024714696,
+>>>>>>> master
     a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -52,8 +56,8 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 1
+    m_EnableBakedLightmaps: 0
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 9
     m_Resolution: 2
@@ -1160,7 +1164,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 540124178}
+<<<<<<< HEAD
   m_LocalRotation: {x: 0.24065918, y: 0.7142761, z: 0.58877265, w: -0.29195836}
+=======
+  m_LocalRotation: {x: 0.13634278, y: 0.7436906, z: 0.1597621, w: -0.6346739}
+>>>>>>> master
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1180,8 +1188,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longitude: 0
   latitude: 0
+<<<<<<< HEAD
   hour: 5
   minutes: 11
+=======
+  hour: 20
+  minutes: 51
+>>>>>>> master
   timeSpeed: 1
   frameSteps: 1
 --- !u!1 &597589926
