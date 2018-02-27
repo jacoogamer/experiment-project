@@ -28,22 +28,6 @@ namespace UnityARInterface
         private Dictionary<Guid, UnityAction<SerializableSubMessage>> m_MessageHandler =
             new Dictionary<Guid, UnityAction<SerializableSubMessage>>();
 
-        private bool m_BackgroundRendering;
-        public bool BackgroundRendering
-        {
-            get
-            {
-                return m_BackgroundRendering;
-            }
-            set
-            {
-                m_BackgroundRendering = value;
-                if (m_ARInterface != null){
-                    m_ARInterface.BackgroundRendering = m_BackgroundRendering;
-                }
-            }
-        }
-
         public bool IsRunning
         {
             get
@@ -75,7 +59,6 @@ namespace UnityARInterface
             Register(ARMessageIds.SubMessageIds.startService, StartServiceMessageHandler);
             Register(ARMessageIds.SubMessageIds.stopService, StopServiceMessageHandler);
             Register(ARMessageIds.SubMessageIds.enableVideo, EnableVideoMessageHandler);
-            Register(ARMessageIds.SubMessageIds.backgroundRendering, BackgroundRenderingMessageHandler);
         }
 
         private void OnDisable()
@@ -128,12 +111,6 @@ namespace UnityARInterface
             m_HaveSentCameraParams = false;
         }
 
-        void BackgroundRenderingMessageHandler(SerializableSubMessage message)
-        {
-            var requestedBackgroundRenderingState = message.GetDataAs<SerializableBackgroundRendering>();
-            BackgroundRendering = requestedBackgroundRenderingState.backgroundRendering;
-        }
-
         void StartServiceMessageHandler(SerializableSubMessage message)
         {
             var settings = message.GetDataAs<SerializableARSettings>();
@@ -180,7 +157,6 @@ namespace UnityARInterface
 
             m_ARInterface = arInterface;
             m_ARInterface.SetupCamera(m_ARCamera);
-            m_ARInterface.BackgroundRendering = BackgroundRendering;
 
             ARInterface.planeAdded += PlaneAddedHandler;
             ARInterface.planeUpdated += PlaneUpdatedHandler;
@@ -295,7 +271,7 @@ namespace UnityARInterface
                     SendToEditor(ARMessageIds.lightEstimate, serializedLightEstimate);
                 }
 
-                if (m_SendVideo && m_ARInterface.BackgroundRendering)
+                if (m_SendVideo)
                 {
                     if (m_ARInterface.TryGetCameraImage(ref m_CameraImage))
                     {

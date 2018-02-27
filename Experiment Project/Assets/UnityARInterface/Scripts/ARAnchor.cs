@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace UnityARInterface
 {
@@ -8,7 +11,6 @@ namespace UnityARInterface
         public string anchorID;
 
         private ARInterface m_ARInterface;
-        private bool started;
 
         private void Awake()
         {
@@ -20,29 +22,20 @@ namespace UnityARInterface
         void Start()
         {
             UpdateAnchor();
-            started = true;
-        }
-
-        private void OnEnable()
-        {
-            if (started)
-                UpdateAnchor();
-        }
-
-        private void OnDisable()
-        {
-            m_ARInterface.DestroyAnchor(this);
-        }
-
-        private void OnDestroy()
-        {
-            m_ARInterface.DestroyAnchor(this);
         }
 
         public void UpdateAnchor()
         {
             m_ARInterface.DestroyAnchor(this);
             m_ARInterface.ApplyAnchor(this);
+        }
+
+        private void OnDestroy()
+        {
+            if (m_ARInterface != null && !string.IsNullOrEmpty(anchorID))
+            {
+                m_ARInterface.DestroyAnchor(this);
+            }
         }
 
     }

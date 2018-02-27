@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityARInterface;
 using UnityEngine;
 using UnityEngine.UI;
-public class SetGazeOnARPlane : MonoBehaviour {
+public class SetGazeOnARPlane : ARBase
+{
 
     public GameObject ReticleTransform, FakeRecticleImage;
     public Image ReticleImage;
@@ -27,24 +28,25 @@ public class SetGazeOnARPlane : MonoBehaviour {
         SetPosition();
         CalculateSize();
     }
-
+    private ParticleSystem.Particle[] m_Particles;
     public void SetPosition()
     {
-
         RaycastHit hitInfo;
 
-        if ((Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, float.MaxValue, mask) || (clickNum == 2)))
-        {
-            MeasureButton.SetActive(true);
-            // ReticleTransform.transform.position = hitInfo.point;
-            //ReticleTransform.transform.rotation = Quaternion.FromToRotation(Vector3.forward, hitInfo.normal);
-            //FakeRecticleImage.SetActive(true);
-            //ReticleTransform.SetActive(true);
-            FakeRecticleImage.GetComponent<Image>().sprite = TargetIcon;
-            FakeRecticleImage.transform.localScale = new Vector3(0.0005f, 0.0005f, 0.0005f);
-            // FakeRecticleImage.SetActive(true);
-        }
+        
 
+            if ((Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, float.MaxValue,mask) || (clickNum == 2)))
+            {
+                MeasureButton.SetActive(true);
+                // ReticleTransform.transform.position = hitInfo.point;
+                //ReticleTransform.transform.rotation = Quaternion.FromToRotation(Vector3.forward, hitInfo.normal);
+                //FakeRecticleImage.SetActive(true);
+                //ReticleTransform.SetActive(true);
+                FakeRecticleImage.GetComponent<Image>().sprite = TargetIcon;
+                FakeRecticleImage.transform.localScale = new Vector3(0.0005f, 0.0005f, 0.0005f);
+                // FakeRecticleImage.SetActive(true);
+            }
+        
         else
         {
 
@@ -77,37 +79,35 @@ public class SetGazeOnARPlane : MonoBehaviour {
 
     RaycastHit hitInfo;
     RaycastHit AllhitsInfo;
-    
+
     public void CalculateSize()
     {
 
-       
-
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, float.MaxValue, mask))
-        {
-
-            if (clickNum == 1)
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, float.MaxValue,mask))
             {
 
-                PosFirst.transform.position = hitInfo.point;
+                if (clickNum == 1)
+                {
 
-                
+                    PosFirst.transform.position = hitInfo.point;
 
-                clickNum = 2;
-                clonels = Instantiate(lrMeasument, hitInfo.point, Quaternion.identity);
-                clonels.SetActive(false);
-                clonels.GetComponent<LineRenderer>().SetPosition(0, PosFirst.transform.position);
+
+
+                    clickNum = 2;
+                    clonels = Instantiate(lrMeasument, hitInfo.point, Quaternion.identity);
+                    clonels.SetActive(false);
+                    clonels.GetComponent<LineRenderer>().SetPosition(0, PosFirst.transform.position);
+                }
+
             }
 
-        }
-
-
-
+        
+        
 
         if (clickNum == 2)
         {
-
-            PosFirst2.transform.position = hitInfo.point;
+           
+                PosFirst2.transform.position = hitInfo.point;
 
 
             float rawSize = Vector3.Distance(PosFirst.transform.position, PosFirst2.transform.position);

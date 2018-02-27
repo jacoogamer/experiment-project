@@ -12,12 +12,12 @@ public class DebugPlaneParticles : MonoBehaviour {
         DebugToggle.isOn = false;
 
     }
-
-
-    void Update()
+	
+	
+	void Update ()
     {
 
-        if (DebugToggle.isOn == true)
+        if(DebugToggle.isOn == true)
         {
             clone = GameObject.FindGameObjectsWithTag("ArPlane");
             YellowParticles.SetColor("_TintColor", new Color32(255, 255, 0, 111));

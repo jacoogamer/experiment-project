@@ -3,15 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.XR;
 using UnityEngine.XR.iOS;
 
 namespace UnityARInterface
 {
     public class ARKitInterface : ARInterface
     {
-        private Material m_ClearMaterial;
+        private Material m_CachedClearMaterial;
         private UnityARSessionNativeInterface nativeInterface
         { get { return UnityARSessionNativeInterface.GetARSessionNativeInterface(); } }
 
@@ -23,9 +21,6 @@ namespace UnityARInterface
         private byte[] m_TextureUVBytes;
         private byte[] m_TextureYBytes2;
         private byte[] m_TextureUVBytes2;
-        private ARBackgroundRenderer m_BackgroundRenderer;
-        private Texture2D _videoTextureY;
-        private Texture2D _videoTextureCbCr;
         private GCHandle m_PinnedYArray;
         private GCHandle m_PinnedUVArray;
         private Vector3[] m_PointCloudData;
@@ -33,33 +28,12 @@ namespace UnityARInterface
 		private Matrix4x4 m_DisplayTransform;
         private ARKitWorldTrackingSessionConfiguration m_SessionConfig;
         private Dictionary<string, ARAnchor> m_Anchors = new Dictionary<string, ARAnchor>();
-        private bool m_BackgroundRendering;
-        private Camera m_Camera;
-        private float m_CurrentNearZ;
-        private float m_CurrentFarZ;
 
         public override bool IsSupported
         {
             get
             {
                 return m_SessionConfig.IsSupported;
-            }
-        }
-
-        public override bool BackgroundRendering
-        {
-            get
-            {
-                return m_BackgroundRendering;
-            }
-            set
-            {
-                if (m_BackgroundRenderer == null)
-                    return;
-
-                m_BackgroundRendering = value;
-                m_BackgroundRenderer.mode = m_BackgroundRendering ?
-                    ARRenderMode.MaterialAsBackground : ARRenderMode.StandardBackground;
             }
         }
 
@@ -203,11 +177,6 @@ namespace UnityARInterface
             {
                 DestroyAnchor(anchor);
             }
-
-            UnityARSessionNativeInterface.ARAnchorAddedEvent -= AddAnchor;
-            UnityARSessionNativeInterface.ARAnchorUpdatedEvent -= UpdateAnchor;
-            UnityARSessionNativeInterface.ARAnchorRemovedEvent -= RemoveAnchor;
-            UnityARSessionNativeInterface.ARFrameUpdatedEvent -= UpdateFrame;
             UnityARSessionNativeInterface.ARUserAnchorUpdatedEvent -= UpdateUserAnchor;
             UnityARSessionNativeInterface.GetARSessionNativeInterface().Pause();
 
@@ -216,10 +185,6 @@ namespace UnityARInterface
             m_PinnedUVArray.Free();
             m_TexturesInitialized = false;
 
-            BackgroundRendering = false;
-            m_BackgroundRenderer.backgroundMaterial = null;
-            m_BackgroundRenderer.camera = null;
-            m_BackgroundRenderer = null;
             IsRunning = false;
         }
 
@@ -278,63 +243,34 @@ namespace UnityARInterface
 
         public override void SetupCamera(Camera camera)
         {
-            m_Camera = camera;
-            m_ClearMaterial = Resources.Load("YUVMaterial", typeof(Material)) as Material;
+            UnityARVideo unityARVideo = camera.GetComponent<UnityARVideo>();
+            if (unityARVideo == null)
+            {
+                m_CachedClearMaterial = Resources.Load("YUVMaterial", typeof(Material)) as Material;
+            }
+            else
+            {
+                m_CachedClearMaterial = unityARVideo.m_ClearMaterial;
+                GameObject.Destroy(unityARVideo);
+            }
 
-            m_BackgroundRenderer = new ARBackgroundRenderer();
-            m_BackgroundRenderer.backgroundMaterial = m_ClearMaterial;
-            m_BackgroundRenderer.camera = camera;
+            unityARVideo = camera.gameObject.AddComponent<UnityARVideo>();
+            unityARVideo.m_ClearMaterial = m_CachedClearMaterial;
+
+            if (camera.GetComponent<UnityARCameraNearFar>() == null)
+                camera.gameObject.AddComponent<UnityARCameraNearFar>();
+
+            camera.clearFlags = CameraClearFlags.Depth;
         }
 
         public override void UpdateCamera(Camera camera)
         {
             camera.projectionMatrix = nativeInterface.GetCameraProjection();
-
-            if (!m_BackgroundRendering)
-                return;
-
-            ARTextureHandles handles = UnityARSessionNativeInterface.GetARSessionNativeInterface().GetARVideoTextureHandles();
-            if (handles.textureY == System.IntPtr.Zero || handles.textureCbCr == System.IntPtr.Zero)
-            {
-                return;
-            }
-
-            Resolution currentResolution = Screen.currentResolution;
-
-            // Texture Y
-            if (_videoTextureY == null)
-            {
-                _videoTextureY = Texture2D.CreateExternalTexture(currentResolution.width, currentResolution.height,
-                    TextureFormat.R8, false, false, (System.IntPtr)handles.textureY);
-                _videoTextureY.filterMode = FilterMode.Bilinear;
-                _videoTextureY.wrapMode = TextureWrapMode.Repeat;
-                m_ClearMaterial.SetTexture("_textureY", _videoTextureY);
-            }
-
-            // Texture CbCr
-            if (_videoTextureCbCr == null)
-            {
-                _videoTextureCbCr = Texture2D.CreateExternalTexture(currentResolution.width, currentResolution.height,
-                    TextureFormat.RG16, false, false, (System.IntPtr)handles.textureCbCr);
-                _videoTextureCbCr.filterMode = FilterMode.Bilinear;
-                _videoTextureCbCr.wrapMode = TextureWrapMode.Repeat;
-                m_ClearMaterial.SetTexture("_textureCbCr", _videoTextureCbCr);
-            }
-
-            _videoTextureY.UpdateExternalTexture(handles.textureY);
-            _videoTextureCbCr.UpdateExternalTexture(handles.textureCbCr);
-
-            m_ClearMaterial.SetMatrix("_DisplayTransform", m_DisplayTransform);
         }
 
         public override void Update()
         {
-            if (m_CurrentNearZ != m_Camera.nearClipPlane || m_CurrentFarZ != m_Camera.farClipPlane)
-            {
-                m_CurrentNearZ = m_Camera.nearClipPlane;
-                m_CurrentFarZ = m_Camera.farClipPlane;
-                UnityARSessionNativeInterface.GetARSessionNativeInterface().SetCameraClipPlanes(m_CurrentNearZ, m_CurrentFarZ);
-            }
+
         }
 
         public override void ApplyAnchor(ARAnchor arAnchor)

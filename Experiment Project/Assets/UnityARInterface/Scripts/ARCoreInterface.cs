@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using GoogleARCore;
+using GoogleARCoreInternal;
 using System.Collections;
 using System.Runtime.InteropServices;
-using UnityEngine.XR;
 
 namespace UnityARInterface
 {
@@ -46,38 +46,24 @@ namespace UnityARInterface
         private List<TrackedPlane> m_TrackedPlaneBuffer = new List<TrackedPlane>();
         private ScreenOrientation m_CachedScreenOrientation;
         private Dictionary<TrackedPlane, BoundedPlane> m_TrackedPlanes = new Dictionary<TrackedPlane, BoundedPlane>();
-        private ARCoreSession m_ARCoreSession;
+        private SessionManager m_SessionManager;
         private ARCoreSessionConfig m_ARCoreSessionConfig;
-        private ARBackgroundRenderer m_BackgroundRenderer;
+        private ARCoreBackgroundRenderer m_BackgroundRenderer;
         private Matrix4x4 m_DisplayTransform = Matrix4x4.identity;
         private List<Vector4> m_TempPointCloud = new List<Vector4>();
         private Dictionary<ARAnchor, Anchor> m_Anchors = new Dictionary<ARAnchor, Anchor>();
-        private bool m_BackgroundRendering;
 
         public override bool IsSupported
         {
             get
             {
-                return
-                    Session.Status != SessionStatus.ErrorApkNotAvailable &&
-                    Session.Status != SessionStatus.ErrorSessionConfigurationNotSupported;
-            }
-        }
+                if (m_SessionManager == null)
+                    m_SessionManager = SessionManager.CreateSession();
 
-        public override bool BackgroundRendering
-        {
-            get
-            {
-                return m_BackgroundRendering;
-            }
-            set
-            {
-                if (m_BackgroundRenderer == null)
-                    return;
+                if (m_ARCoreSessionConfig == null)
+                    m_ARCoreSessionConfig = ScriptableObject.CreateInstance<ARCoreSessionConfig>();
 
-                m_BackgroundRendering = value;
-                m_BackgroundRenderer.mode = m_BackgroundRendering ? 
-                    ARRenderMode.MaterialAsBackground : ARRenderMode.StandardBackground;
+                return m_SessionManager.CheckSupported((m_ARCoreSessionConfig));
             }
         }
 
@@ -89,67 +75,128 @@ namespace UnityARInterface
             m_ARCoreSessionConfig.EnableLightEstimation = settings.enableLightEstimation;
             m_ARCoreSessionConfig.EnablePlaneFinding = settings.enablePlaneDetection;
             //Do we want to match framerate to the camera?
-            m_ARCoreSessionConfig.MatchCameraFramerate = true;
+            m_ARCoreSessionConfig.MatchCameraFramerate = false;
 
-            // Create a GameObject on which the session component will live.
-            if (m_ARCoreSession == null)
+            //Using the SessionManager instead of ARCoreSession allows us to check if the config is supported,
+            //And also using the session without the need for a GameObject or an additional MonoBehaviour.
+            if (m_SessionManager == null)
             {
-                var go = new GameObject("ARCore Session");
-                go.SetActive(false);
-                m_ARCoreSession = go.AddComponent<ARCoreSession>();
-                m_ARCoreSession.SessionConfig = m_ARCoreSessionConfig;
-                go.SetActive(true);
-            }
-
-            // Enabling the session triggers the connection
-            m_ARCoreSession.SessionConfig = m_ARCoreSessionConfig;
-            m_ARCoreSession.enabled = true;
-
-            if (!IsSupported)
-            {
-                switch (Session.Status)
-                {
-                    case SessionStatus.ErrorApkNotAvailable:
-                        Debug.LogError("ARCore APK is not installed");
-                        yield break;
-                    case SessionStatus.ErrorPermissionNotGranted:
-                        Debug.LogError("A needed permission (likely the camera) has not been granted");
-                        yield break;
-                    case SessionStatus.ErrorSessionConfigurationNotSupported:
-                        Debug.LogError("The given ARCore session configuration is not supported on this device");
-                        yield break;
-                    case SessionStatus.FatalError:
-                        Debug.LogError("A fatal error was encountered trying to start the ARCore session");
-                        yield break;
-                }
-            }
-
-            while (!Session.Status.IsValid())
-            {
-                IsRunning = false;
-
-                if (Session.Status.IsError())
-                {
-                    switch (Session.Status)
-                    {
-                        case SessionStatus.ErrorPermissionNotGranted:
-                            Debug.LogError("A needed permission (likely the camera) has not been granted");
-                            yield break;
-                        case SessionStatus.FatalError:
-                            Debug.LogError("A fatal error was encountered trying to start the ARCore session");
-                            yield break;
-                    }
+                m_SessionManager = SessionManager.CreateSession();
+                if (!IsSupported){
+                    ARDebug.LogError("The requested ARCore session configuration is not supported.");
+                    yield break;
                 }
 
-                yield return null;
-            }
+                Session.Initialize(m_SessionManager);
 
-            // If we make it out of the while loop, then the session is initialized and valid
-            IsRunning = true;
+                if (Session.ConnectionState != SessionConnectionState.Uninitialized)
+                {
+                    ARDebug.LogError("Could not create an ARCore session.  The current Unity Editor may not support this " +
+                        "version of ARCore.");
+                    yield break;
+                }
+            }
+            //We ask for permission to use the camera and wait
+            var task = AskForPermissionAndConnect(m_ARCoreSessionConfig);
+            yield return task.WaitForCompletion();
+            //After the operation is done, we double check if the connection was successful
+            IsRunning = task.Result == SessionConnectionState.Connected;
 
             if (IsRunning)
                 TextureReader_create((int)k_ImageFormatType, k_ARCoreTextureWidth, k_ARCoreTextureHeight, true);
 
+        }
+
+        //Checks if we can establish a connection, and ask for permission
+        private AsyncTask<SessionConnectionState> AskForPermissionAndConnect(ARCoreSessionConfig sessionConfig)
+        {
+            const string androidCameraPermissionName = "android.permission.CAMERA";
+
+            if (m_SessionManager == null)
+            {
+                ARDebug.LogError("Cannot connect because ARCoreSession failed to initialize.");
+                return new AsyncTask<SessionConnectionState>(SessionConnectionState.Uninitialized);
+            }
+
+            if (sessionConfig == null)
+            {
+                ARDebug.LogError("Unable to connect ARSession session due to missing ARSessionConfig.");
+                m_SessionManager.ConnectionState = SessionConnectionState.MissingConfiguration;
+                return new AsyncTask<SessionConnectionState>(Session.ConnectionState);
+            }
+
+            // We have already connected at least once.
+            if (Session.ConnectionState != SessionConnectionState.Uninitialized)
+            {
+                ARDebug.LogError("Multiple attempts to connect to the ARSession.  Note that the ARSession connection " +
+                    "spans the lifetime of the application and cannot be reconfigured.  This will change in future " +
+                    "versions of ARCore.");
+                return new AsyncTask<SessionConnectionState>(Session.ConnectionState);
+            }
+
+            // Create an asynchronous task for the potential permissions flow and service connection.
+            Action<SessionConnectionState> onTaskComplete;
+            var returnTask = new AsyncTask<SessionConnectionState>(out onTaskComplete);
+            returnTask.ThenAction((connectionState) =>
+            {
+                m_SessionManager.ConnectionState = connectionState;
+            });
+
+            // Attempt service connection immediately if permissions are granted.
+            if (AndroidPermissionsManager.IsPermissionGranted(androidCameraPermissionName))
+            {
+                Connect(sessionConfig, onTaskComplete);
+                return returnTask;
+            }
+
+            // Request needed permissions and attempt service connection if granted.
+            AndroidPermissionsManager.RequestPermission(androidCameraPermissionName).ThenAction((requestResult) =>
+            {
+                if (requestResult.IsAllGranted)
+                {
+                    Connect(sessionConfig, onTaskComplete);
+                }
+                else
+                {
+                    ARDebug.LogError("ARCore connection failed because a needed permission was rejected.");
+                    onTaskComplete(SessionConnectionState.UserRejectedNeededPermission);
+                }
+            });
+
+            return returnTask;
+        }
+
+        //Connect is called once the permission to use the camera is granted.
+        private void Connect(ARCoreSessionConfig sessionConfig, Action<SessionConnectionState> onComplete)
+        {
+            if (!m_SessionManager.CheckSupported(sessionConfig))
+            {
+                ARDebug.LogError("The requested ARCore session configuration is not supported.");
+                onComplete(SessionConnectionState.InvalidConfiguration);
+                return;
+            }
+
+            if (!m_SessionManager.SetConfiguration(sessionConfig))
+            {
+                ARDebug.LogError("ARCore connection failed because the current configuration is not supported.");
+                onComplete(SessionConnectionState.InvalidConfiguration);
+                return;
+            }
+
+            Frame.Initialize(m_SessionManager.FrameManager);
+
+            // ArSession_resume needs to be called in the UI thread due to b/69682628.
+            AsyncTask.PerformActionInUIThread(() =>
+            {
+                if (!m_SessionManager.Resume())
+                {
+                    onComplete(SessionConnectionState.ConnectToServiceFailed);
+                }
+                else
+                {
+                    onComplete(SessionConnectionState.Connected);
+                }
+            });
         }
 
         public override void StopService()
@@ -159,19 +206,15 @@ namespace UnityARInterface
             {
                 DestroyAnchor(anchor);
             }
-
-            m_ARCoreSession.enabled = false;
+            Frame.Destroy();
+            Session.Destroy();
             TextureReader_destroy();
-            BackgroundRendering = false;
-            m_BackgroundRenderer.backgroundMaterial = null;
-            m_BackgroundRenderer.camera = null;
-            m_BackgroundRenderer = null;
             IsRunning = false;
         }
 
         public override bool TryGetUnscaledPose(ref Pose pose)
         {
-            if (Session.Status != SessionStatus.Tracking)
+            if (Frame.TrackingState != TrackingState.Tracking)
                 return false;
 
             pose.position = Frame.Pose.position;
@@ -181,7 +224,7 @@ namespace UnityARInterface
 
         public override bool TryGetCameraImage(ref CameraImage cameraImage)
         {
-            if (Session.Status != SessionStatus.Tracking)
+            if (Frame.TrackingState != TrackingState.Tracking)
                 return false;
 
             if (Frame.CameraImage.Texture == null || Frame.CameraImage.Texture.GetNativeTexturePtr() == IntPtr.Zero)
@@ -262,7 +305,7 @@ namespace UnityARInterface
 
         public override bool TryGetPointCloud(ref PointCloud pointCloud)
         {
-            if (Session.Status != SessionStatus.Tracking)
+            if (Frame.TrackingState != TrackingState.Tracking)
                 return false;
 
             // Fill in the data to draw the point cloud.
@@ -284,7 +327,7 @@ namespace UnityARInterface
 
         public override LightEstimate GetLightEstimate()
         {
-            if (Session.Status.IsValid() && Frame.LightEstimate.State == LightEstimateState.Valid)
+            if (Session.ConnectionState == SessionConnectionState.Connected && Frame.LightEstimate.State == LightEstimateState.Valid)
             {
                 return new LightEstimate()
                 {
@@ -337,45 +380,50 @@ namespace UnityARInterface
 
         public override void SetupCamera(Camera camera)
         {
-            ARCoreBackgroundRenderer backgroundRenderer =
-                camera.GetComponent<ARCoreBackgroundRenderer>();
-
-            if (backgroundRenderer == null)
-            {
-                camera.gameObject.SetActive(false);
-                backgroundRenderer = camera.gameObject.AddComponent<ARCoreBackgroundRenderer>();
-                backgroundRenderer.BackgroundMaterial = Resources.Load("Materials/ARBackground", typeof(Material)) as Material;
-                camera.gameObject.SetActive(true);
-            }
+            camera.gameObject.SetActive(false);
+            m_BackgroundRenderer = camera.gameObject.AddComponent<ARCoreBackgroundRenderer>();
+            m_BackgroundRenderer.BackgroundMaterial = Resources.Load("Materials/ARBackground", typeof(Material)) as Material;
+            camera.gameObject.SetActive(true);
         }
 
         public override void UpdateCamera(Camera camera)
         {
-            // This is handled for us by the ARCoreBackgroundRenderer
+            if (Screen.orientation == m_CachedScreenOrientation)
+                return;
+
+            CalculateDisplayTransform();
+            m_CachedScreenOrientation = Screen.orientation;
+        }
+
+
+        private bool FloatCompare(float a, float b)
+        {
+            return Mathf.Abs(a - b) < 9.99999944E-11f;
         }
 
         private bool PlaneUpdated(TrackedPlane tp, BoundedPlane bp)
         {
-            var tpExtents = new Vector2(tp.ExtentX, tp.ExtentZ);
-            var extents = Vector2.Distance(tpExtents, bp.extents) > 0.005f;
-            var rotation = tp.CenterPose.rotation != bp.rotation;
-            var position = Vector2.Distance(tp.CenterPose.position, bp.center) > 0.005f;
+            var extents = (!FloatCompare(tp.ExtentX, bp.extents.x) || !FloatCompare(tp.ExtentZ, bp.extents.y));
+            var rotation = tp.Rotation != bp.rotation;
+            var position = tp.Position != bp.center;
             return (extents || rotation || position);
         }
 
         public override void Update()
         {
-            if (m_ARCoreSession == null)
+            if (m_SessionManager == null)
+            {
                 return;
+            }
 
             AsyncTask.OnUpdate();
 
-            if (Session.Status != SessionStatus.Tracking)
+            if (Frame.TrackingState != TrackingState.Tracking)
                 return;
 
             if(m_ARCoreSessionConfig.EnablePlaneFinding)
             {
-                Session.GetTrackables<TrackedPlane>(m_TrackedPlaneBuffer, TrackableQueryFilter.All);
+                Frame.GetPlanes(m_TrackedPlaneBuffer);
                 foreach (var trackedPlane in m_TrackedPlaneBuffer)
                 {
                     BoundedPlane boundedPlane;
@@ -390,11 +438,10 @@ namespace UnityARInterface
                         // update any planes with changed extents
                         else if (PlaneUpdated(trackedPlane, boundedPlane))
                         {
-                            boundedPlane.center = trackedPlane.CenterPose.position;
-                            boundedPlane.rotation = trackedPlane.CenterPose.rotation;
+                            boundedPlane.center = trackedPlane.Position;
+                            boundedPlane.rotation = trackedPlane.Rotation;
                             boundedPlane.extents.x = trackedPlane.ExtentX;
                             boundedPlane.extents.y = trackedPlane.ExtentZ;
-                            m_TrackedPlanes[trackedPlane] = boundedPlane;
                             OnPlaneUpdated(boundedPlane);
                         }
                     }
@@ -404,8 +451,8 @@ namespace UnityARInterface
                         boundedPlane = new BoundedPlane()
                         {
                             id = Guid.NewGuid().ToString(),
-                            center = trackedPlane.CenterPose.position,
-                            rotation = trackedPlane.CenterPose.rotation,
+                            center = trackedPlane.Position,
+                            rotation = trackedPlane.Rotation,
                             extents = new Vector2(trackedPlane.ExtentX, trackedPlane.ExtentZ)
                         };
 
@@ -438,13 +485,14 @@ namespace UnityARInterface
             }
         }
 
+
         public override void ApplyAnchor(ARAnchor arAnchor)
         {
             if (!IsRunning)
                 return;
             //Since ARCore wants to create it's own GameObject, we can keep a reference to it and copy its Pose.
             //Not the best, but probably will change when ARCore releases.
-            Anchor arCoreAnchor = Session.CreateAnchor(new Pose(arAnchor.transform.position, arAnchor.transform.rotation));
+            Anchor arCoreAnchor = Session.CreateWorldAnchor(new Pose(arAnchor.transform.position, arAnchor.transform.rotation));
             arAnchor.anchorID = Guid.NewGuid().ToString();
             m_Anchors[arAnchor] = arCoreAnchor;
         }

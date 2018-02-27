@@ -13,11 +13,11 @@ namespace UnityARInterface
         [SerializeField]
         private float m_ParticleSize = 1.0f;
 
-        private ParticleSystem m_ParticleSystem;
+        public  ParticleSystem m_ParticleSystem;
         private ParticleSystem.Particle [] m_Particles;
         private ParticleSystem.Particle[] m_NoParticles;
         private ARInterface.PointCloud m_PointCloud;
-        public GameObject PointsCube, CloneCubes;
+        public GameObject PointsCube,CloneCubes;
         private void OnDisable()
         {
             m_ParticleSystem.SetParticles(m_NoParticles, 1);
@@ -38,6 +38,7 @@ namespace UnityARInterface
             {
                 var scale = GetScale();
 
+               
                 var numParticles = Mathf.Min(m_PointCloud.points.Count, m_MaxPointsToShow);
                 if (m_Particles == null || m_Particles.Length != numParticles)
                     m_Particles = new ParticleSystem.Particle[numParticles];
@@ -58,5 +59,7 @@ namespace UnityARInterface
                 m_ParticleSystem.SetParticles(m_NoParticles, 1);
             }
         }
+
+        
     }
 }
