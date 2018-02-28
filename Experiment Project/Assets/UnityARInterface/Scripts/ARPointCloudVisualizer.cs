@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace UnityARInterface
 {
@@ -13,11 +14,11 @@ namespace UnityARInterface
         [SerializeField]
         private float m_ParticleSize = 1.0f;
 
-        public  ParticleSystem m_ParticleSystem;
-        private ParticleSystem.Particle [] m_Particles;
+        public ParticleSystem m_ParticleSystem;
+        private ParticleSystem.Particle[] m_Particles;
         private ParticleSystem.Particle[] m_NoParticles;
         private ARInterface.PointCloud m_PointCloud;
-        public GameObject PointsCube,CloneCubes;
+        public GameObject PointsCube, CloneCubes;
         private void OnDisable()
         {
             m_ParticleSystem.SetParticles(m_NoParticles, 1);
@@ -29,6 +30,7 @@ namespace UnityARInterface
             m_ParticleSystem = Instantiate(m_PointCloudParticlePrefab, GetRoot());
             m_NoParticles = new ParticleSystem.Particle[1];
             m_NoParticles[0].startSize = 0f;
+          
         }
 
         // Update is called once per frame
@@ -38,7 +40,7 @@ namespace UnityARInterface
             {
                 var scale = GetScale();
 
-               
+
                 var numParticles = Mathf.Min(m_PointCloud.points.Count, m_MaxPointsToShow);
                 if (m_Particles == null || m_Particles.Length != numParticles)
                     m_Particles = new ParticleSystem.Particle[numParticles];
@@ -50,6 +52,9 @@ namespace UnityARInterface
                     m_Particles[i].startSize = m_ParticleSize * scale;
                     GameObject clone = Instantiate(PointsCube, m_PointCloud.points[i] * scale, Quaternion.identity);
                     clone.transform.parent = CloneCubes.transform;
+
+
+
                 }
 
                 m_ParticleSystem.SetParticles(m_Particles, numParticles);
@@ -60,6 +65,7 @@ namespace UnityARInterface
             }
         }
 
-        
+
+       
     }
 }

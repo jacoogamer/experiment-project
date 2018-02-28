@@ -107,9 +107,9 @@ public class SetGazeOnARPlane : ARBase
         if (clickNum == 2)
         {
            
-                PosFirst2.transform.position = hitInfo.point;
+            PosFirst2.transform.position = hitInfo.point;
 
-
+            
             float rawSize = Vector3.Distance(PosFirst.transform.position, PosFirst2.transform.position);
 
 
