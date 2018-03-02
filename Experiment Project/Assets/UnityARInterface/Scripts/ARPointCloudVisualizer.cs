@@ -32,7 +32,7 @@ namespace UnityARInterface
             m_NoParticles[0].startSize = 0f;
           
         }
-
+        public bool ifPointsCubeEnabled = false;
         // Update is called once per frame
         void Update()
         {
@@ -50,10 +50,13 @@ namespace UnityARInterface
                     m_Particles[i].position = m_PointCloud.points[i] * scale;
                     m_Particles[i].startColor = new Color(1.0f, 1.0f, 1.0f);
                     m_Particles[i].startSize = m_ParticleSize * scale;
-                    GameObject clone = Instantiate(PointsCube, m_PointCloud.points[i] * scale, Quaternion.identity);
-                    clone.transform.parent = CloneCubes.transform;
 
+                    if (ifPointsCubeEnabled == true)
+                    {
+                        GameObject clone = Instantiate(PointsCube, m_PointCloud.points[i] * scale, Quaternion.identity);
+                        clone.transform.parent = CloneCubes.transform;
 
+                    }
 
                 }
 
