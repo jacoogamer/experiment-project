@@ -1,6 +1,8 @@
 Android
 SceneListBegin?
-Assets/Scenes/Main.unity
+Assets/Scenes/Menu.unity
+Assets/Scenes/Measurement.unity
+Assets/Scenes/CubesPlacement.unity
 SceneListEnd?
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityEngine.XR.iOS.UnityARKitControl
 8f1552ee6e46ab879db254ce1f7081f7 Assembly-CSharp.dll:Entropedia.Sun
@@ -176,6 +178,7 @@ e31ef279e8d06182f0817ebd899ff54c Assembly-CSharp.dll:.UnityARUserAnchorExample
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.LineRendererMeasurment
 5511a49b5104d2e14b66af50a17125f0 Assembly-CSharp.dll:.ParticlePainter
 54484036f2686625f3d5f5b06557fe49 Assembly-CSharp.dll:.PlaceOnPlane
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.LoadLevelwithString
 e353101906474689643fc3c6d0a3ba4a Assembly-CSharp.dll:.ColorPicker
 dd6501652c91cb163a39e051d37a965f Assembly-CSharp.dll:UnityARInterface.ARBallzGO
 e7f268767823a8cd19911699aa31f1ea Assembly-CSharp.dll:Lean.Touch.LeanMultiTapInfo

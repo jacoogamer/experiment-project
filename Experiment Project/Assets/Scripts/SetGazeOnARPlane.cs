@@ -171,8 +171,9 @@ public class SetGazeOnARPlane : ARBase
 
 
             rawSize = Vector3.Distance(PosFirst.transform.position, PosFirst2.transform.position);
-            rawSize = rawSize * 100;
-
+            Debug.Log(rawSize = rawSize * 100);
+           
+            
             //Debug.Log((rawSize = rawSize * 100) + "rawSize");
             //clonels.GetComponentInChildren<TextMesh>().text = "(" +  CovertData.x.ToString("f1") + "cm Width," + CovertData.y.ToString("f1") + "cm Height,"+ CovertData.z.ToString("f1") + "cm Lenght)";
             // clonels.GetComponentInChildren<TextMesh>().text = rawSize.ToString("f1") + "cm";

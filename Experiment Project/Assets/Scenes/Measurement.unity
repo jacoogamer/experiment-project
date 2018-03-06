@@ -280,7 +280,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -312,7 +312,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 540124178}
-  m_LocalRotation: {x: 0.21580708, y: 0.7149064, z: -0.25039786, w: 0.6161469}
+  m_LocalRotation: {x: 0.34701627, y: 0.6503308, z: 0.44004846, w: -0.5128421}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -332,8 +332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longitude: 0
   latitude: 0
-  hour: 14
-  minutes: 17
+  hour: 4
+  minutes: 16
   timeSpeed: 1
   frameSteps: 1
 --- !u!1 &597589926
@@ -448,7 +448,7 @@ MonoBehaviour:
   OrginalPosition: {x: -215.01, y: -344.0043, z: 0.58}
   mask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 1280
   OrginalRotation: {x: 0, y: 0, z: 0}
   Square: {fileID: 21300000, guid: 9436837637cf4b1409ee906bc74201a6, type: 3}
   TargetIcon: {fileID: 21300000, guid: dbe1d774ff25b114d8ec27b37be0b75e, type: 3}
@@ -1337,6 +1337,7 @@ GameObject:
   - component: {fileID: 1794882086}
   - component: {fileID: 1794882088}
   - component: {fileID: 1794882087}
+  - component: {fileID: 1794882090}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1408,6 +1409,22 @@ Transform:
   m_Father: {fileID: 1932185257}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1794882090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1794882085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1742909100, guid: ed7343f30e3843b3afda8f8b02669cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Device: 0
+  m_PoseSource: 6
+  m_TrackingType: 0
+  m_UpdateType: 0
+  m_UseRelativeTransform: 1
 --- !u!1 &1877142954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d15554ba01a81b43836c6e4770c204f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 1372998203143648, guid: f879aaf3eeb0c467eb22cbaf08dc97a4,
+  m_PlanePrefab: {fileID: 1756566245766468, guid: 6bd3755ce45eb114d938bfd13243e087,
     type: 2}
   m_PlaneLayer: 8
 --- !u!114 &1932185256
@@ -1597,12 +1614,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PointCloudParticlePrefab: {fileID: 198314236125653888, guid: 87db9decf4b3e4cb8bf3eea22ccd37f5,
     type: 2}
-  m_MaxPointsToShow: 100
+  m_MaxPointsToShow: 1000
   m_ParticleSize: 0.04
   m_ParticleSystem: {fileID: 0}
   PointsCube: {fileID: 1030034299636522, guid: 97e3827a2adb2f74e9a965a72be6c05b, type: 2}
   CloneCubes: {fileID: 1877142954}
-  ifPointsCubeEnabled: 1
 --- !u!4 &1932185257
 Transform:
   m_ObjectHideFlags: 0
