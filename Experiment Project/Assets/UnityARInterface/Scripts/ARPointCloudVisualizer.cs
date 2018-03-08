@@ -18,7 +18,7 @@ namespace UnityARInterface
         private ParticleSystem.Particle[] m_Particles;
         private ParticleSystem.Particle[] m_NoParticles;
         private ARInterface.PointCloud m_PointCloud;
-        public GameObject PointsCube, CloneCubes;
+       
         private void OnDisable()
         {
             m_ParticleSystem.SetParticles(m_NoParticles, 1);

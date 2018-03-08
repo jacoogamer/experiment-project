@@ -184,6 +184,7 @@ public class SetGazeOnARPlane : ARBase
                 emptyGameObject.AddComponent<TextMesh>();
                 emptyGameObject.AddComponent<LookAtCamera>();
                 emptyGameObject.GetComponent<TextMesh>().anchor = TextAnchor.UpperCenter;
+                emptyGameObject.GetComponent<TextMesh>().color = Color.black;
                 emptyGameObject.GetComponent<TextMesh>().alignment = TextAlignment.Left;
                 emptyGameObject.GetComponent<TextMesh>().characterSize = Vector3.Distance(Camera.main.transform.position, PosFirst2.transform.position) / 30;
 

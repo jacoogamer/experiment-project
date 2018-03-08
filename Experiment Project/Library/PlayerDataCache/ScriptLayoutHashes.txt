@@ -1,8 +1,9 @@
 Android
 SceneListBegin?
 Assets/Scenes/Menu.unity
-Assets/Scenes/Measurement.unity
+Assets/Scenes/A4measure.unity
 Assets/Scenes/CubesPlacement.unity
+Assets/Scenes/Realworldscale.unity
 SceneListEnd?
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityEngine.XR.iOS.UnityARKitControl
 8f1552ee6e46ab879db254ce1f7081f7 Assembly-CSharp.dll:Entropedia.Sun
@@ -138,6 +139,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 47cf20cc289832e9d0a08b6a7ca8c787 Assembly-CSharp.dll:.ARCameraTracker
 4fe9c9fc13767168de00f9d8cf1a4ddc Assembly-CSharp.dll:.ObjectShooter
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
+622a6bf1a28a755c662bb9123fd34da0 Assembly-CSharp.dll:.RealWorldScale
 39c1b55c595755c48c3ed2b7db14b332 Assembly-CSharp.dll:.DemoGUI
 381ce6ca82673f74d791480ddfe87363 Assembly-CSharp.dll:Lean.Touch.LeanFingerSwipe
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GoogleARCore.EnvironmentalLight
@@ -255,6 +257,6 @@ d49c4dceabcd0f316458072a477aeae8 Assembly-CSharp.dll:Lean.Touch.LeanSpawn
 05012a5c4e5496c7da7c6bf88a0eb92a Assembly-CSharp.dll:Lean.Touch.LeanPitchYawSmooth
 c7b4e1cefa38e05c60ad69dee88481d8 Assembly-CSharp.dll:Lean.Touch.LeanSelectableRendererColor
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UnityARKitLightManager
-0f85c6a15b6ec48c7ffc4016e8b10202 Assembly-CSharp.dll:UnityARInterface.ARPointCloudVisualizer
+d70df500ac38b92e9fabfc697937898a Assembly-CSharp.dll:UnityARInterface.ARPointCloudVisualizer
 391d84b859f3b155fe38f54bfce79162 Assembly-CSharp.dll:.UnityPointCloudExample
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UnityARCameraNearFar
