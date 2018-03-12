@@ -17,3 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Realworldscale.unity
     guid: 1d44506d9601e3642ab441652d31f28b
+  - enabled: 1
+    path: Assets/Scenes/MultiSidedFloor.unity
+    guid: 8b07a67c3dd29cc4dbc1c181a2a34b5a
+  - enabled: 1
+    path: Assets/Scenes/areacalc.unity
+    guid: 8d06ffd8e9e35a947a110c106f098775

@@ -92,6 +92,7 @@ public class SetGazeOnARPlane : ARBase
         OnePlay = false;
         clickNum = 1;
         clickplus = 0;
+        totalcms = 0;
     }
 
     public void ClickOnMeasurmentButton()
@@ -100,10 +101,16 @@ public class SetGazeOnARPlane : ARBase
         {
             clickNum = 1;
             ++clickplus;
+            
         }
         else if (clickNum == 2)
+        {
+            totalcms += rawSize;
+            ListOfVectors.Add(PosFirst2.transform.position);
             clickNum = 0;
-
+            
+            Debug.Log(numberOfLines);
+        }
        
 
         Debug.Log(clickplus);
@@ -115,8 +122,11 @@ public class SetGazeOnARPlane : ARBase
     GameObject emptyGameObject;
     int postioncounts = 1;
     float rawSize;
+    public float totalcms = 0;
     private float t;
-    
+    //
+    public List<Vector2> ListOfVectors;
+    public int numberOfLines;
     public void CalculateSize()
     {
 
@@ -125,19 +135,19 @@ public class SetGazeOnARPlane : ARBase
 
                 if (clickNum == 1)
                 {
-
+                ++numberOfLines;
                 t = 0;
                 PosFirst.transform.position = hitInfo.point;
-
+                ListOfVectors.Add(PosFirst.transform.position);
                 SecondOnePlay = false;
-
+                
                 clickNum = 2;
                 if (OnePlay == false)
                 {
                     clonels = Instantiate(lrMeasument, hitInfo.point, Quaternion.identity);
                     postioncounts = 2;
                     clonels.GetComponent<LineRenderer>().positionCount = postioncounts;
-
+                   
                     clonels.SetActive(false);
                     OnePlay = true;
                 }
@@ -172,8 +182,7 @@ public class SetGazeOnARPlane : ARBase
 
             rawSize = Vector3.Distance(PosFirst.transform.position, PosFirst2.transform.position);
             Debug.Log(rawSize = rawSize * 100);
-           
-            
+
             //Debug.Log((rawSize = rawSize * 100) + "rawSize");
             //clonels.GetComponentInChildren<TextMesh>().text = "(" +  CovertData.x.ToString("f1") + "cm Width," + CovertData.y.ToString("f1") + "cm Height,"+ CovertData.z.ToString("f1") + "cm Lenght)";
             // clonels.GetComponentInChildren<TextMesh>().text = rawSize.ToString("f1") + "cm";
