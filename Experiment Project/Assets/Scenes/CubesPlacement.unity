@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37506765, g: 0.38345417, b: 0.362712, a: 1}
+  m_IndirectSpecularColor: {r: 0.44730532, g: 0.49265325, b: 0.5505443, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1300,9 +1300,6 @@ MonoBehaviour:
   m_MaxPointsToShow: 100
   m_ParticleSize: 0.04
   m_ParticleSystem: {fileID: 0}
-  PointsCube: {fileID: 1030034299636522, guid: 97e3827a2adb2f74e9a965a72be6c05b, type: 2}
-  CloneCubes: {fileID: 0}
-  ifPointsCubeEnabled: 0
 --- !u!4 &348119160
 Transform:
   m_ObjectHideFlags: 0
@@ -1776,8 +1773,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longitude: 0
   latitude: 0
-  hour: 23
-  minutes: 41
+  hour: 22
+  minutes: 31
   timeSpeed: 1
   frameSteps: 1
 --- !u!114 &819623373
@@ -1833,7 +1830,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 819623371}
-  m_LocalRotation: {x: -0.00087443704, y: 0.7438637, z: -0.00097326445, w: -0.66833013}
+  m_LocalRotation: {x: -0.101628914, y: 0.7131162, z: -0.10571749, w: -0.6855368}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

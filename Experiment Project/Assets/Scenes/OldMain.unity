@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45088685, g: 0.50078833, b: 0.574572, a: 1}
+  m_IndirectSpecularColor: {r: 0.013144048, g: 0.0057194484, b: 0.0012526006, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1446,6 +1446,9 @@ MonoBehaviour:
   lrMeasument: {fileID: 1935422075}
   OnePlay: 0
   SecondOnePlay: 0
+  totalcms: 0
+  ListOfVectors: []
+  numberOfLines: 0
 --- !u!224 &566435157
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2869,7 +2872,6 @@ GameObject:
   - component: {fileID: 1246527687}
   - component: {fileID: 1246527690}
   - component: {fileID: 1246527689}
-  - component: {fileID: 1246527688}
   m_Layer: 0
   m_Name: New Text
   m_TagString: Untagged
@@ -2890,17 +2892,6 @@ Transform:
   m_Father: {fileID: 1935422078}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1246527688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1246527686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 366d5670266deba47b55d22f6e96169e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!102 &1246527689
 TextMesh:
   serializedVersion: 3
@@ -3625,8 +3616,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longitude: 0
   latitude: 0
-  hour: 14
-  minutes: 1
+  hour: 10
+  minutes: 18
   timeSpeed: 1
   frameSteps: 1
 --- !u!114 &1431431497
@@ -3650,7 +3641,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -3682,7 +3673,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1431431495}
-  m_LocalRotation: {x: 0.19521831, y: 0.7208247, z: -0.22482389, w: 0.625904}
+  m_LocalRotation: {x: -0.121118136, y: 0.7134209, z: 0.12738332, w: 0.6783322}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4426,8 +4417,6 @@ MonoBehaviour:
   m_MaxPointsToShow: 100
   m_ParticleSize: 0.04
   m_ParticleSystem: {fileID: 0}
-  PointsCube: {fileID: 1030034299636522, guid: 97e3827a2adb2f74e9a965a72be6c05b, type: 2}
-  CloneCubes: {fileID: 294239367}
 --- !u!1 &1872972653
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,36 +8,27 @@ public class SetGazeOnARPlane : ARBase
 
     public GameObject ReticleTransform, FakeRecticleImage;
     public Image ReticleImage;
-   
     public Vector3 OrginalPosition;
     public LayerMask mask;
-   
     public Vector3 OrginalRotation;
     public Sprite Square, TargetIcon;
-   
-    // Use this for initialization
-    void Start () {
+
+    void Start ()
+    {
         lrMeasument.SetActive(false);
-        
-
-
     }
 	
-	// Update is called once per frame
 	void Update ()
     {
         SetPosition();
         CalculateSize();
-
-        
            
             if (emptyGameObject != null && clickNum == 0)
             {
-            
-                 t += Time.deltaTime / 10;
+                t += Time.deltaTime / 10;
             
             if(t < 0.4)
-                emptyGameObject.GetComponent<TextMesh>().transform.position = Vector3.Lerp(PosFirst2.transform.position, PosFirst.transform.position, t);
+                emptyGameObject.GetComponent<TextMesh>().transform.position = Vector3.Lerp(new Vector3(PosFirst2.transform.position.x, PosFirst2.transform.position.y + 0.10f, PosFirst2.transform.position.z), new Vector3(PosFirst.transform.position.x, PosFirst.transform.position.y + 0.10f, PosFirst.transform.position.z), t);
             }
         
         
@@ -55,13 +46,9 @@ public class SetGazeOnARPlane : ARBase
                 MeasureButton.SetActive(true);
             
                 NewMeasureButton.SetActive(true);
-            // ReticleTransform.transform.position = hitInfo.point;
-            //ReticleTransform.transform.rotation = Quaternion.FromToRotation(Vector3.forward, hitInfo.normal);
-            //FakeRecticleImage.SetActive(true);
-            //ReticleTransform.SetActive(true);
-            FakeRecticleImage.GetComponent<Image>().sprite = TargetIcon;
+                FakeRecticleImage.GetComponent<Image>().sprite = TargetIcon;
                 FakeRecticleImage.transform.localScale = new Vector3(0.0005f, 0.0005f, 0.0005f);
-                // FakeRecticleImage.SetActive(true);
+               
             }
         
         else
@@ -183,9 +170,6 @@ public class SetGazeOnARPlane : ARBase
             rawSize = Vector3.Distance(PosFirst.transform.position, PosFirst2.transform.position);
             Debug.Log(rawSize = rawSize * 100);
 
-            //Debug.Log((rawSize = rawSize * 100) + "rawSize");
-            //clonels.GetComponentInChildren<TextMesh>().text = "(" +  CovertData.x.ToString("f1") + "cm Width," + CovertData.y.ToString("f1") + "cm Height,"+ CovertData.z.ToString("f1") + "cm Lenght)";
-            // clonels.GetComponentInChildren<TextMesh>().text = rawSize.ToString("f1") + "cm";
             if (SecondOnePlay == false)
             {
                 emptyGameObject = new GameObject();
@@ -195,7 +179,7 @@ public class SetGazeOnARPlane : ARBase
                 emptyGameObject.GetComponent<TextMesh>().anchor = TextAnchor.UpperCenter;
                 emptyGameObject.GetComponent<TextMesh>().color = Color.black;
                 emptyGameObject.GetComponent<TextMesh>().alignment = TextAlignment.Left;
-                emptyGameObject.GetComponent<TextMesh>().characterSize = Vector3.Distance(Camera.main.transform.position, PosFirst2.transform.position) / 30;
+                emptyGameObject.GetComponent<TextMesh>().characterSize = Vector3.Distance(Camera.main.transform.position, PosFirst2.transform.position) / 60;
 
                 SecondOnePlay = true;
 
@@ -221,8 +205,7 @@ public class SetGazeOnARPlane : ARBase
            
 
             emptyGameObject.GetComponent<TextMesh>().text = rawSize.ToString("f1") + "cm";
-            //emptyGameObject.GetComponent<TextMesh>().transform.position = Vector3.Lerp(PosFirst2.transform.position, PosFirst.transform.position, t);
-            emptyGameObject.GetComponent<TextMesh>().transform.position = PosFirst2.transform.position;
+            emptyGameObject.GetComponent<TextMesh>().transform.position =  new Vector3(PosFirst2.transform.position.x, PosFirst2.transform.position.y + 0.10f, PosFirst2.transform.position.z);
         }
 
 
