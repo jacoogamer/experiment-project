@@ -72,14 +72,7 @@ public class InnerTotalCms : MonoBehaviour
             GetMeasurement.GetComponent<SetGazeOnARPlane>().ListOfVectors.Clear();
             GetMeasurement.GetComponent<SetGazeOnARPlane>().numberOfLines = 0;
 
-            LineRend.GetComponent<SetGazeOnARPlane>().clickNum = 0;
-            
-
-
-            LineRend.GetComponent<SetGazeOnARPlane>().OnePlay = false;
            
-            LineRend.GetComponent<SetGazeOnARPlane>().clickplus = 0;
-            LineRend.GetComponent<SetGazeOnARPlane>().totalcms = 0;
         }
 
         if (GetMeasurement.GetComponent<SetGazeOnARPlane>().numberOfLines >= 1 && OnePlay == true)
