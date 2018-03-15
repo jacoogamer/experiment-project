@@ -2,7 +2,7 @@ Android
 SceneListBegin?
 Assets/Scenes/Menu.unity
 Assets/Scenes/A4measure.unity
-Assets/Scenes/CubesPlacement.unity
+Assets/Scenes/ARCollider.unity
 Assets/Scenes/Realworldscale.unity
 Assets/Scenes/MultiSidedFloor.unity
 Assets/Scenes/areacalc.unity
@@ -30,6 +30,7 @@ df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.T
 f8b19b97900ca06b9c1ad0eec4014aa2 Assembly-CSharp.dll:Lean.Touch.LeanFingerDown
 f5f6d5266095d9b5a9cb629d89087ded Assembly-CSharp.dll:UnityARInterface.ARRemoteVideo
 0e2133805505e9911ad953d31fa8b931 Assembly-CSharp.dll:UnityARInterface.ARAnchor
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.OnSelectCube
 8c366d0d93a4f5e45097ef40b35dd82a Assembly-CSharp.dll:Lean.Touch.LeanFingerLine
 516e5cc4558edc3eaf07fa540ce485bf Assembly-CSharp.dll:.ColorPickerTester
 5d56d57891485d75c62bcc75163d0eee Assembly-CSharp.dll:UnityARInterface.MatchingScalePicker
@@ -236,7 +237,7 @@ f12e11c5db182dc28151c60e0ac2adea Assembly-CSharp.dll:.ARPlaneFind
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityEngine.XR.iOS.UnityARUserAnchorComponent
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 c23567de7068d554c905c20656a91b08 Assembly-CSharp.dll:Lean.Touch.LeanCameraMoveSmooth
-d1b24bcdc286e50f165dcd4892f1be56 Assembly-CSharp.dll:.InnerTotalCms
+76ce67e4930d439083e48d6a4b846f80 Assembly-CSharp.dll:.InnerTotalCms
 493c211ab85ec2db8c090d3ba6c0a013 Assembly-CSharp.dll:Lean.Touch.LeanSelectableSpriteRendererColor
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GoogleARCore.HelloAR.TrackedPlaneVisualizer
 e151305212b6d9dd07d68e464b461420 Assembly-CSharp.dll:Lean.Touch.LeanFingerTap
@@ -255,7 +256,7 @@ e151305212b6d9dd07d68e464b461420 Assembly-CSharp.dll:Lean.Touch.LeanFingerTap
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityARInterface.ARBase
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SyncPointsHolder
 d49c4dceabcd0f316458072a477aeae8 Assembly-CSharp.dll:Lean.Touch.LeanSpawn
-044bdd00df89990a4c74028ea62f328b Assembly-CSharp.dll:.SetGazeOnARPlane
+c0b061ed519b9a2f8554a51a2921354c Assembly-CSharp.dll:.SetGazeOnARPlane
 1599adf36a90c6dd91987c85a00ee885 Assembly-CSharp.dll:Lean.Touch.LeanFingerHeld
 05012a5c4e5496c7da7c6bf88a0eb92a Assembly-CSharp.dll:Lean.Touch.LeanPitchYawSmooth
 c7b4e1cefa38e05c60ad69dee88481d8 Assembly-CSharp.dll:Lean.Touch.LeanSelectableRendererColor
@@ -263,4 +264,4 @@ c7b4e1cefa38e05c60ad69dee88481d8 Assembly-CSharp.dll:Lean.Touch.LeanSelectableRe
 d70df500ac38b92e9fabfc697937898a Assembly-CSharp.dll:UnityARInterface.ARPointCloudVisualizer
 391d84b859f3b155fe38f54bfce79162 Assembly-CSharp.dll:.UnityPointCloudExample
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UnityARCameraNearFar
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.OnSelectCube
+7d8efece13758701702f0b7310000a4d Assembly-CSharp.dll:.CheckIFInnerBoxCollide

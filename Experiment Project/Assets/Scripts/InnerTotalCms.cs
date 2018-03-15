@@ -12,6 +12,8 @@ public class InnerTotalCms : MonoBehaviour
     public GameObject CalculateButtonObject;
     public GameObject SecondPos;
     public UnityEngine.UI.Text InnTotalCms;
+    private GameObject emptyGameObject;
+    public GameObject ZPosMeasurment,LineRend;
     private void Start()
     {
         CalculateButtonObject.SetActive(false);
@@ -37,12 +39,30 @@ public class InnerTotalCms : MonoBehaviour
         msh.triangles = indices;
         msh.RecalculateNormals();
         msh.RecalculateBounds();
+
+
+       
+
         float mshfloat = msh.bounds.size.x * 1000f;
         InnTotalCms.text = mshfloat.ToString("f1") + "cm";
+
+        emptyGameObject = new GameObject();
+        emptyGameObject.AddComponent<TextMesh>();
+        emptyGameObject.AddComponent<LookAtCamera>();
+        emptyGameObject.GetComponent<TextMesh>().anchor = TextAnchor.UpperCenter;
+        emptyGameObject.GetComponent<TextMesh>().color = Color.red;
+        emptyGameObject.GetComponent<TextMesh>().alignment = TextAlignment.Left;
+        emptyGameObject.GetComponent<TextMesh>().characterSize = Vector3.Distance(Camera.main.transform.position, ZPosMeasurment.transform.position) / 50;
+        emptyGameObject.GetComponent<TextMesh>().text = mshfloat.ToString("f1") + "cm";
+        
+        emptyGameObject.GetComponent<TextMesh>().transform.position = new Vector3(msh.bounds.center.x, ZPosMeasurment.transform.position.z);
+        
+        emptyGameObject.GetComponent<TextMesh>().transform.position = Vector3.Lerp(LineRend.GetComponent<SetGazeOnARPlane>().clonels.GetComponent<LineRenderer>().GetPosition(1), LineRend.GetComponent<SetGazeOnARPlane>().clonels.GetComponent<LineRenderer>().GetPosition(3), 0.6f);
+
     }
 
 
-
+   
     void Update()
     {
         if (EnableMeasurement == true)
@@ -51,9 +71,23 @@ public class InnerTotalCms : MonoBehaviour
             EnableMeasurement = false;
             GetMeasurement.GetComponent<SetGazeOnARPlane>().ListOfVectors.Clear();
             GetMeasurement.GetComponent<SetGazeOnARPlane>().numberOfLines = 0;
+
+            LineRend.GetComponent<SetGazeOnARPlane>().clickNum = 0;
+            
+
+
+            LineRend.GetComponent<SetGazeOnARPlane>().OnePlay = false;
+           
+            LineRend.GetComponent<SetGazeOnARPlane>().clickplus = 0;
+            LineRend.GetComponent<SetGazeOnARPlane>().totalcms = 0;
         }
 
-        if (GetMeasurement.GetComponent<SetGazeOnARPlane>().numberOfLines >= 3)
+        if (GetMeasurement.GetComponent<SetGazeOnARPlane>().numberOfLines >= 1 && OnePlay == true)
+        {
+            LineRend.GetComponent<SetGazeOnARPlane>().MeasureButtonOff = false;
+        }
+
+            if (GetMeasurement.GetComponent<SetGazeOnARPlane>().numberOfLines >= 4 && ZPosMeasurment.GetComponent<CheckIFInnerBoxCollide>().BoxCollideTouching == true)
         {
 
             CalculateButtonObject.SetActive(true);
@@ -62,12 +96,22 @@ public class InnerTotalCms : MonoBehaviour
         {
             CalculateButtonObject.SetActive(false);
         }
+
+        
     }
 
+    public bool OnePlay = false;
     public void CalculateButton()
     {
+
+
+        LineRend.GetComponent<SetGazeOnARPlane>().MeasureButtonOff = true;
+        OnePlay = true;
+
+
         EnableMeasurement = true;
 
+        
     }
 }
 

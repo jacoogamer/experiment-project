@@ -28,13 +28,14 @@ public class SetGazeOnARPlane : ARBase
                 t += Time.deltaTime / 10;
             
             if(t < 0.4)
-                emptyGameObject.GetComponent<TextMesh>().transform.position = Vector3.Lerp(new Vector3(PosFirst2.transform.position.x, PosFirst2.transform.position.y + 0.10f, PosFirst2.transform.position.z), new Vector3(PosFirst.transform.position.x, PosFirst.transform.position.y + 0.10f, PosFirst.transform.position.z), t);
+                emptyGameObject.GetComponent<TextMesh>().transform.position = Vector3.Lerp(new Vector3(PosFirst2.transform.position.x, PosFirst2.transform.position.y + 0.08f, PosFirst2.transform.position.z), new Vector3(PosFirst.transform.position.x, PosFirst.transform.position.y + 0.10f, PosFirst.transform.position.z), t);
             }
         
         
 
     }
     private ParticleSystem.Particle[] m_Particles;
+    public bool MeasureButtonOff = false;
     public void SetPosition()
     {
         RaycastHit hitInfo;
@@ -43,8 +44,13 @@ public class SetGazeOnARPlane : ARBase
 
             if ((Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, float.MaxValue,mask) || (clickNum == 2)))
             {
+            if (MeasureButtonOff == false)
+            {
                 MeasureButton.SetActive(true);
-            
+            }else
+            {
+                MeasureButton.SetActive(false);
+            }
                 NewMeasureButton.SetActive(true);
                 FakeRecticleImage.GetComponent<Image>().sprite = TargetIcon;
                 FakeRecticleImage.transform.localScale = new Vector3(0.0005f, 0.0005f, 0.0005f);
@@ -66,11 +72,11 @@ public class SetGazeOnARPlane : ARBase
     }
 
     public Vector3 Measurements;
-    int clickNum = 0,clickplus = -1;
+    public int clickNum = 0,clickplus = -1;
     public GameObject PosFirst2,PosFirst;
     
     public GameObject MeasureButton,NewMeasureButton;
-    private GameObject clonels;
+    public GameObject clonels;
     public GameObject lrMeasument;
     private ARInterface.PointCloud m_PointCloud;
     
@@ -114,6 +120,9 @@ public class SetGazeOnARPlane : ARBase
     //
     public List<Vector2> ListOfVectors;
     public int numberOfLines;
+
+    public Vector3 FirstPointOFLR;
+    public GameObject FirstCollidePosition;
     public void CalculateSize()
     {
 
@@ -134,7 +143,7 @@ public class SetGazeOnARPlane : ARBase
                     clonels = Instantiate(lrMeasument, hitInfo.point, Quaternion.identity);
                     postioncounts = 2;
                     clonels.GetComponent<LineRenderer>().positionCount = postioncounts;
-                   
+                    
                     clonels.SetActive(false);
                     OnePlay = true;
                 }
@@ -147,6 +156,9 @@ public class SetGazeOnARPlane : ARBase
                 if (clickplus == 0)
                 {
                     clonels.GetComponent<LineRenderer>().SetPosition(0, PosFirst.transform.position);
+                    FirstPointOFLR = clonels.GetComponent<LineRenderer>().GetPosition(0);
+                    if(Application.loadedLevelName == "areacalc")
+                        FirstCollidePosition.transform.position = FirstPointOFLR;
                     ++clickplus;
                 }
                 else
@@ -205,7 +217,7 @@ public class SetGazeOnARPlane : ARBase
            
 
             emptyGameObject.GetComponent<TextMesh>().text = rawSize.ToString("f1") + "cm";
-            emptyGameObject.GetComponent<TextMesh>().transform.position =  new Vector3(PosFirst2.transform.position.x, PosFirst2.transform.position.y + 0.10f, PosFirst2.transform.position.z);
+            emptyGameObject.GetComponent<TextMesh>().transform.position =  new Vector3(PosFirst2.transform.position.x, PosFirst2.transform.position.y + 0.08f, PosFirst2.transform.position.z);
         }
 
 
