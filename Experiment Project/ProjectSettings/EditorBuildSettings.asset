@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/A4measure.unity
     guid: c6d32e4539bb7884d96cdc53d93afd51
   - enabled: 1
-    path: Assets/Scenes/CubesPlacement.unity
+    path: Assets/Scenes/ARCollider.unity
     guid: 424def87e03f04443b233f5f136989dd
   - enabled: 1
     path: Assets/Scenes/Realworldscale.unity
@@ -23,3 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/areacalc.unity
     guid: 8d06ffd8e9e35a947a110c106f098775
+  - enabled: 1
+    path: Assets/Scenes/GPS.unity
+    guid: f53c88de94af7d64684d3a8dbb2fc8de

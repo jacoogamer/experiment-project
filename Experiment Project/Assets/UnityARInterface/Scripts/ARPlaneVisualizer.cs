@@ -50,8 +50,10 @@ namespace UnityARInterface
             go.transform.localRotation = plane.rotation;
             go.transform.localScale = new Vector3(plane.extents.x, 1f, plane.extents.y);
             Vector3 objectSize = Vector3.Scale(go.transform.localScale, go.GetComponentInChildren<MeshFilter>().mesh.bounds.size);
-
-            foreach (Text t in GetComponentsInChildren<Text>())
+            objectSize.x *= 10;
+            objectSize.y *= 10;
+            objectSize.z *= 10;
+            foreach (TextMesh t in GetComponentsInChildren<TextMesh>())
             {
                 if (t.gameObject.name == "Tall")
                     t.text = objectSize.y.ToString("f1") + "cm Tall";
