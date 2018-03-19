@@ -43,8 +43,8 @@ public class InnerTotalCms : MonoBehaviour
 
        
 
-        float mshfloat = msh.bounds.size.x * 1000f;
-        InnTotalCms.text = mshfloat.ToString("f1") + "cm";
+        float mshfloat = msh.bounds.size.x * 100f;
+        InnTotalCms.text = mshfloat.ToString("f1") + "m";
 
         emptyGameObject = new GameObject();
         emptyGameObject.AddComponent<TextMesh>();
@@ -53,7 +53,7 @@ public class InnerTotalCms : MonoBehaviour
         emptyGameObject.GetComponent<TextMesh>().color = Color.red;
         emptyGameObject.GetComponent<TextMesh>().alignment = TextAlignment.Left;
         emptyGameObject.GetComponent<TextMesh>().characterSize = Vector3.Distance(Camera.main.transform.position, ZPosMeasurment.transform.position) / 50;
-        emptyGameObject.GetComponent<TextMesh>().text = mshfloat.ToString("f1") + "cm";
+        emptyGameObject.GetComponent<TextMesh>().text = mshfloat.ToString("f1") + "m";
         
         emptyGameObject.GetComponent<TextMesh>().transform.position = new Vector3(msh.bounds.center.x, ZPosMeasurment.transform.position.z);
         

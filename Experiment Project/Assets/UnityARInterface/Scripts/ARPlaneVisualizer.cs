@@ -55,12 +55,13 @@ namespace UnityARInterface
             objectSize.z *= 10;
             foreach (TextMesh t in GetComponentsInChildren<TextMesh>())
             {
-                if (t.gameObject.name == "Tall")
+               /* if (t.gameObject.name == "Tall")
                     t.text = objectSize.y.ToString("f1") + "cm Tall";
                 if (t.gameObject.name == "Width")
                     t.text = objectSize.x.ToString("f1") + "cm Width";
                 if (t.gameObject.name == "Z-Axis")
                     t.text = objectSize.z.ToString("f1") + "cm Z-Axis";
+                    */
             }
 
 
