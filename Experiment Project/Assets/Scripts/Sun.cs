@@ -95,7 +95,7 @@ namespace Entropedia
             angles.y = (float)azi * Mathf.Rad2Deg;
             //UnityEngine.Debug.Log(angles);
             transform.localRotation = Quaternion.Euler(angles);
-            light.intensity = Mathf.InverseLerp(-12, 0, angles.x);
+            //light.intensity = Mathf.InverseLerp(-12, 0, angles.x);
         }
 
     }
