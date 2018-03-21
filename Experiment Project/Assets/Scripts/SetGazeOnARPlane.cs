@@ -38,6 +38,7 @@ public class SetGazeOnARPlane : ARBase
     public bool MeasureButtonOff = false;
     public void SetPosition()
     {
+
         RaycastHit hitInfo;
 
         
@@ -59,7 +60,6 @@ public class SetGazeOnARPlane : ARBase
         
         else
         {
-
 
             FakeRecticleImage.GetComponent<Image>().sprite = Square;
             FakeRecticleImage.transform.localScale = new Vector3(0.00005f, 0.00005f, 0.00005f);

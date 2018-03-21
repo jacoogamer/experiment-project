@@ -4,6 +4,7 @@ using UnityEngine;
 public class UniAndroidPermission : MonoBehaviour
 {
     const string PackageName = "net.sanukin.PermissionManager";
+    private static UniAndroidPermission Instance;
 
     static Action onAllowCallback;
     static Action onDenyCallback;
@@ -12,6 +13,14 @@ public class UniAndroidPermission : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            DestroyObject(gameObject);
+        }
     }
 
     public static bool IsPermitted(AndroidPermission permission)

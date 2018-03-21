@@ -63,14 +63,20 @@ public class GetGPS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ToggleGPS == null)
+            return;
+
         GPSLocation = "Lat: " + Input.location.lastData.latitude + " Long: " + Input.location.lastData.longitude + "\nAltitude: " +
             Input.location.lastData.altitude + " horizontal Accuracy: " + Input.location.lastData.horizontalAccuracy + "\nTimestamp: " + Input.location.lastData.timestamp;
         GPSText.text = GPSLocation;
 
-        if(ToggleGPS.GetComponent<Toggle>().isOn == true && (Input.location.status == LocationServiceStatus.Failed || Input.location.status == LocationServiceStatus.Stopped))
+        
+
+        if(ToggleGPS.GetComponent<Toggle>().isOn == true)
         {
+#if UNITY_ANDROID
             RequestPermission();
-            Input.location.Start(1F, 0.1F);
+#endif
         }
     }
 
@@ -96,6 +102,7 @@ public class GetGPS : MonoBehaviour
         // show warning window and open app permission setting page
     }
 
+  
 
 }
 

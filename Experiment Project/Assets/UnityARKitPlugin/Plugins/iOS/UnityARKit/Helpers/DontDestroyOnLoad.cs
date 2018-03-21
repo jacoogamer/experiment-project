@@ -2,15 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DontDestroyOnLoad : MonoBehaviour {
+public class DontDestroyOnLoad : MonoBehaviour
+{
 
+    public static DontDestroyOnLoad Instance;
 	// Use this for initialization
-	void Start () {
-        DontDestroyOnLoad (gameObject);
-	}
+	void Awake ()
+    {
+        //
+        //DontDestroyOnLoad (gameObject);
+
+        
+
+         //   if (Instance == null)
+          //  {
+           //     Instance = this;
+            //}
+           // else
+           // {
+           //     DestroyObject(gameObject);
+           // }
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 }
