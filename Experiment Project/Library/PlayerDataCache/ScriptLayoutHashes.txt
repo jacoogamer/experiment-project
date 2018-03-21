@@ -157,6 +157,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 8bb8d2e63730f43bf5eeaa11a50e0cc8 Assembly-CSharp.dll:GoogleARCore.HelloAR.HelloARController
 ae9fb675c8b24287ef316d862876c7ab Assembly-CSharp.dll:UnityARInterface.ARRemoteEditor
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UniAndroidPermission
 26215f135eeb48d8fa1189498c107f6c Vuforia.UnityExtensions.dll:Vuforia.AnchorBehaviour
 0561521e336e270e6e5a9c61387cb838 Vuforia.UnityExtensions.dll:Vuforia.AnchorInputListenerBehaviour
 2e0fd93f459db951da0e2e94e2e33fb7 Vuforia.UnityExtensions.dll:Vuforia.AnchorStageBehaviour
@@ -294,6 +295,7 @@ e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 9ffb7700875db16ad444cf26872589b9 Assembly-CSharp.dll:.HexColorField
 450b98aded8286c8aae5a80d53cb3d26 Assembly-CSharp.dll:UnityARInterface.ARPlaneVisualizer
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.EnableAndroidGPS
 16ae33ee0fbf8362ac99a6fb3e017cb6 Assembly-CSharp.dll:.FocusSquare
 08281619de4635065dcc9bebc7db5493 Assembly-CSharp.dll:Lean.Touch.LeanScale
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
@@ -407,5 +409,3 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UnityARCameraNearFar
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UniAndroidPermission
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.EnableAndroidGPS
