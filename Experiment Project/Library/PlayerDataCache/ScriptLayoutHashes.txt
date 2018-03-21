@@ -8,7 +8,7 @@ Assets/Scenes/MultiSidedFloor.unity
 Assets/Scenes/areacalc.unity
 Assets/Scenes/GPS.unity
 SceneListEnd?
-957e7447c35fa67f51e27c80ef9c2daa Assembly-CSharp.dll:.GetGPS
+965404130fdc42db238bffeebf1cf59d Assembly-CSharp.dll:.GetGPS
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityEngine.XR.iOS.UnityARKitControl
 8f1552ee6e46ab879db254ce1f7081f7 Assembly-CSharp.dll:Entropedia.Sun
 12096ddf91bc99172a48b0419861fd00 Assembly-CSharp.dll:.PointCloudParticleExample
@@ -281,7 +281,7 @@ c3bbced3b920c972296954f059b11c2e Assembly-CSharp.dll:UnityEngine.UI.BoxSlider
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GoogleARCore.InstantPreviewTrackedPoseDriver
 6ad53a0b0e1b7bbd14016abad1dad63a Assembly-CSharp.dll:Lean.Touch.LeanCameraMove
 8eb2443c71a17d7df9be0eaf3f3a993a Assembly-CSharp.dll:GoogleARCore.ARCoreSession
-2cff142198602da626d9949dfbac685f Assembly-CSharp.dll:.ScrollItemManager
+7c8a14a56e8ba4ade538933f3f6ca91c Assembly-CSharp.dll:.ScrollItemManager
 68f8dcbfb8cb3577c6b30bb7c61ce985 Assembly-CSharp.dll:Supyrb.AdaptingEventSystemDragThreshold
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 96d0fbde9fd209878a0a291f82c9bcdd UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
@@ -407,3 +407,5 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UnityARCameraNearFar
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UniAndroidPermission
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.EnableAndroidGPS

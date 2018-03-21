@@ -1,19 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System;
+using UnityEngine.UI;
+using UnityEngine.XR;
+using GoogleARCore;
 public class GetGPS : MonoBehaviour
 {
     private string GPSLocation;
     // Use this for initialization
-    public UnityEngine.UI.Text GPSText,ErrorGPS;
+    public Text GPSText,ErrorGPS;
+    public GameObject EnableGPSPanel, ToggleGPS;
+    public bool OnePlay = true;
 
+    private void Awake()
+    {
+#if UNITY_ANDROID
+        UniAndroidPermission.IsPermitted(AndroidPermission.ACCESS_FINE_LOCATION);
+        RequestPermission();
+#endif
+
+    }
     IEnumerator Start()
     {
         if (!Input.location.isEnabledByUser)
         {
-            ErrorGPS.text = "GPS Location data is not enabled! Please enable it!";
+            EnableGPSPanel.SetActive(true);
+            ErrorGPS.text = "GPS Location data is not enabled! Enable it or Go to App Permission add manually!";
             Debug.Log("GPS Location data is not enabled! Please enable it!");
             yield break;
+        }else
+        {
+            EnableGPSPanel.SetActive(false);
         }
 
         Input.location.Start(1F,0.1F);
@@ -49,7 +66,37 @@ public class GetGPS : MonoBehaviour
         GPSLocation = "Lat: " + Input.location.lastData.latitude + " Long: " + Input.location.lastData.longitude + "\nAltitude: " +
             Input.location.lastData.altitude + " horizontal Accuracy: " + Input.location.lastData.horizontalAccuracy + "\nTimestamp: " + Input.location.lastData.timestamp;
         GPSText.text = GPSLocation;
+
+        if(ToggleGPS.GetComponent<Toggle>().isOn == true && (Input.location.status == LocationServiceStatus.Failed || Input.location.status == LocationServiceStatus.Stopped))
+        {
+            RequestPermission();
+            Input.location.Start(1F, 0.1F);
+        }
     }
 
-    
+    public void RequestPermission()
+    {
+        UniAndroidPermission.RequestPermission(AndroidPermission.ACCESS_FINE_LOCATION, OnAllow, OnDeny, OnDenyAndNeverAskAgain);
+    }
+
+    private void OnAllow()
+    {
+        // OnAllow action that uses permitted function.
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+   }
+
+    private void OnDeny()
+    {
+        // back screen / show warnking window
+
+    }
+
+    private void OnDenyAndNeverAskAgain()
+    {
+        // show warning window and open app permission setting page
+    }
+
+
 }
+
+

@@ -23,20 +23,25 @@ public class PlaceOnPlane : ARBase
             RaycastHit rayHit;
             if (Physics.Raycast(ray, out rayHit, float.MaxValue, layerMask))
             {
-                if (OnePlay == true)
-                {
-                    OnePlay = false;
+
+                    m_ObjectToPlace.gameObject.GetComponent<MeshRenderer>().enabled = true;
+                    m_ObjectToPlace.gameObject.GetComponent<BoxCollider>().enabled = true;
                     m_ObjectToPlace.transform.position = rayHit.point;
                     m_ObjectToPlace.transform.rotation = rayHit.transform.rotation;
-                }
+                
             }
         }
     }
 
     public void PlaceObject()
     {
-        GameObject clone = Instantiate(TestCube, m_ObjectToPlace.GetComponent<MeshRenderer>().bounds.center, m_ObjectToPlace.transform.rotation);
-        clone.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-        Destroy(m_ObjectToPlace.gameObject,5f);
+        if (m_ObjectToPlace.gameObject.GetComponent<MeshRenderer>().enabled == true)
+        {
+            GameObject clone = Instantiate(TestCube, m_ObjectToPlace.GetComponent<MeshRenderer>().bounds.center, m_ObjectToPlace.transform.rotation);
+            clone.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            //Destroy();
+            m_ObjectToPlace.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            m_ObjectToPlace.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
     }
 }
