@@ -36,6 +36,7 @@ public class SetGazeOnARPlane : ARBase
     }
     private ParticleSystem.Particle[] m_Particles;
     public bool MeasureButtonOff = false;
+
     public void SetPosition()
     {
 

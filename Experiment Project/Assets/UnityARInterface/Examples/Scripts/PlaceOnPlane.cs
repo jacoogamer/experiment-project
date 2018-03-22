@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityARInterface;
+using UnityEngine.EventSystems;
 
 public class PlaceOnPlane : ARBase
 {
@@ -23,7 +24,8 @@ public class PlaceOnPlane : ARBase
             RaycastHit rayHit;
             if (Physics.Raycast(ray, out rayHit, float.MaxValue, layerMask))
             {
-
+                if (IsPointerOverUIObject())
+                    return;
                     m_ObjectToPlace.gameObject.GetComponent<MeshRenderer>().enabled = true;
                     m_ObjectToPlace.gameObject.GetComponent<BoxCollider>().enabled = true;
                     m_ObjectToPlace.transform.position = rayHit.point;
@@ -43,5 +45,16 @@ public class PlaceOnPlane : ARBase
             m_ObjectToPlace.gameObject.GetComponent<MeshRenderer>().enabled = false;
             m_ObjectToPlace.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
+    }
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current)
+        {
+            position = new Vector2(Input.mousePosition.x, Input.mousePosition.y)
+        };
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 }
