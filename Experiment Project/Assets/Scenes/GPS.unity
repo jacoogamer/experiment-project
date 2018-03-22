@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4413755, g: 0.49019533, b: 0.5702356, a: 1}
+  m_IndirectSpecularColor: {r: 0.4369593, g: 0.4846354, b: 0.5648957, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 348119160}
   - component: {fileID: 348119159}
-  - component: {fileID: 348119158}
+  - component: {fileID: 348119157}
   - component: {fileID: 348119156}
   - component: {fileID: 348119155}
   m_Layer: 0
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_BackgroundRendering: 1
   m_Scale: 1
   pointOfInterest: {x: 0, y: 0, z: 0}
---- !u!114 &348119158
+--- !u!114 &348119157
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 348119154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d15554ba01a81b43836c6e4770c204f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1acbb429da25b6f4b8e8e04ade64c4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlanePrefab: {fileID: 1372998203143648, guid: f879aaf3eeb0c467eb22cbaf08dc97a4,
@@ -940,8 +940,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longitude: 0
   latitude: 0
-  hour: 15
-  minutes: 56
+  hour: 18
+  minutes: 0
   timeSpeed: 1
   frameSteps: 1
 --- !u!114 &819623373
@@ -997,7 +997,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 819623371}
-  m_LocalRotation: {x: 0.38368586, y: 0.58923095, z: -0.37374598, w: 0.6049017}
+  m_LocalRotation: {x: -0.5003063, y: 0.49379057, z: -0.4457414, w: -0.55423737}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
