@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.013144048, g: 0.0057194484, b: 0.0012526006, a: 1}
+  m_IndirectSpecularColor: {r: 0.44406006, g: 0.49347162, b: 0.572911, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1438,17 +1438,23 @@ MonoBehaviour:
   OrginalRotation: {x: 0, y: 0, z: 0}
   Square: {fileID: 21300000, guid: 9436837637cf4b1409ee906bc74201a6, type: 3}
   TargetIcon: {fileID: 21300000, guid: dbe1d774ff25b114d8ec27b37be0b75e, type: 3}
+  MeasureButtonOff: 0
   Measurements: {x: 0, y: 0, z: 0}
+  clickNum: 0
+  clickplus: -1
   PosFirst2: {fileID: 667204750}
   PosFirst: {fileID: 1719143036}
   MeasureButton: {fileID: 2135037800}
   NewMeasureButton: {fileID: 594799109}
+  clonels: {fileID: 0}
   lrMeasument: {fileID: 1935422075}
   OnePlay: 0
   SecondOnePlay: 0
   totalcms: 0
   ListOfVectors: []
   numberOfLines: 0
+  FirstPointOFLR: {x: 0, y: 0, z: 0}
+  FirstCollidePosition: {fileID: 0}
 --- !u!224 &566435157
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3616,8 +3622,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longitude: 0
   latitude: 0
-  hour: 10
-  minutes: 18
+  hour: 15
+  minutes: 25
   timeSpeed: 1
   frameSteps: 1
 --- !u!114 &1431431497
@@ -3673,7 +3679,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1431431495}
-  m_LocalRotation: {x: -0.121118136, y: 0.7134209, z: 0.12738332, w: 0.6783322}
+  m_LocalRotation: {x: 0.34103167, y: 0.6149579, z: -0.33417505, w: 0.62757564}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4317,7 +4323,6 @@ GameObject:
   - component: {fileID: 1868060866}
   - component: {fileID: 1868060871}
   - component: {fileID: 1868060870}
-  - component: {fileID: 1868060869}
   - component: {fileID: 1868060868}
   - component: {fileID: 1868060867}
   m_Layer: 0
@@ -4356,6 +4361,7 @@ MonoBehaviour:
   m_PlaneDetection: 1
   m_LightEstimation: 1
   m_PointCloud: 1
+  m_BackgroundRendering: 1
   m_Scale: 1
   pointOfInterest: {x: 0, y: 0, z: 0}
   m_SendVideo: 1
@@ -4374,19 +4380,9 @@ MonoBehaviour:
   m_PlaneDetection: 1
   m_LightEstimation: 1
   m_PointCloud: 1
+  m_BackgroundRendering: 1
   m_Scale: 1
   pointOfInterest: {x: 0, y: 0, z: 0}
---- !u!114 &1868060869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1868060865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 562a9fe49bfc2418099790a804f22711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1868060870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4416,7 +4412,6 @@ MonoBehaviour:
     type: 2}
   m_MaxPointsToShow: 100
   m_ParticleSize: 0.04
-  m_ParticleSystem: {fileID: 0}
 --- !u!1 &1872972653
 GameObject:
   m_ObjectHideFlags: 0
@@ -5260,6 +5255,7 @@ MonoBehaviour:
   - {fileID: 2015101649}
   - {fileID: 173700730}
   CubePrefab: {fileID: 1751634068481204, guid: f70472f453ccbd74ba79e936943772b7, type: 2}
+  PlaceOnPlane: {fileID: 0}
   CubeColor: {fileID: 2100000, guid: d7f3c01cd26a9db489cdda1bda0f9367, type: 2}
   ScrollViewTop: {fileID: 1741173642}
   MainCamOffset: {x: 0, y: 0, z: 1}

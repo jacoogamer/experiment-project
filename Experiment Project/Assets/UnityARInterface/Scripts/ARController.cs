@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 #if UNITY_EDITOR
 using UnityEngine.Networking.PlayerConnection;
@@ -155,6 +156,7 @@ namespace UnityARInterface
                 enabled = false;
             }
         }
+        
 
 
         void OnDisable()

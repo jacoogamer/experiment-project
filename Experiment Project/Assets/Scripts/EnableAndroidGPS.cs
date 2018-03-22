@@ -8,8 +8,10 @@ public class EnableAndroidGPS : MonoBehaviour
     private void Awake()
     {
 #if UNITY_ANDROID
-        UniAndroidPermission.IsPermitted(AndroidPermission.ACCESS_FINE_LOCATION);
-        RequestPermission();
+        if (UniAndroidPermission.IsPermitted(AndroidPermission.ACCESS_FINE_LOCATION))
+        {
+            RequestPermission();
+        }
 #endif
 
     }

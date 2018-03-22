@@ -44,13 +44,14 @@ public class ScrollItemManager : MonoBehaviour
             
             
         }
+        ArrayOfScrollButtons[BtnNum].GetComponent<Shadow>().enabled = true;
+        CubeColor.color = ArrayOfScrollButtons[BtnNum].GetComponent<Image>().color;
         if (PlaceOnPlane.GetComponent<MeshRenderer>().enabled == true)
         {
             //GameObject clone = Instantiate(CubePrefab, Camera.main.transform.position + MainCamOffset, Quaternion.identity);
             GameObject clone = Instantiate(CubePrefab, PlaceOnPlane.GetComponent<MeshRenderer>().bounds.center, PlaceOnPlane.transform.rotation);
             PlaceOnPlane.GetComponent<MeshRenderer>().enabled = false;
-            ArrayOfScrollButtons[BtnNum].GetComponent<Shadow>().enabled = true;
-            CubeColor.color = ArrayOfScrollButtons[BtnNum].GetComponent<Image>().color;
+            
 
             GameObject GetParentObject = GameObject.FindGameObjectWithTag("TopCubeParent");
             clone.transform.parent = GetParentObject.transform;

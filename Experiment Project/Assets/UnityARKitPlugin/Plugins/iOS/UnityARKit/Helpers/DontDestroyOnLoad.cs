@@ -5,23 +5,12 @@ using UnityEngine;
 public class DontDestroyOnLoad : MonoBehaviour
 {
 
-    public static DontDestroyOnLoad Instance;
-	// Use this for initialization
-	void Awake ()
+    
+	
+	void Start ()
     {
-        //
-        //DontDestroyOnLoad (gameObject);
-
         
-
-         //   if (Instance == null)
-          //  {
-           //     Instance = this;
-            //}
-           // else
-           // {
-           //     DestroyObject(gameObject);
-           // }
+        DontDestroyOnLoad (gameObject);
     }
 	
 	// Update is called once per frame

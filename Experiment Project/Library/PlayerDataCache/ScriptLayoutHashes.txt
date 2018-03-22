@@ -7,6 +7,7 @@ Assets/Scenes/Realworldscale.unity
 Assets/Scenes/MultiSidedFloor.unity
 Assets/Scenes/areacalc.unity
 Assets/Scenes/GPS.unity
+Assets/UnityARInterface/ARRemote/RemoteDevice.unity
 SceneListEnd?
 965404130fdc42db238bffeebf1cf59d Assembly-CSharp.dll:.GetGPS
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityEngine.XR.iOS.UnityARKitControl

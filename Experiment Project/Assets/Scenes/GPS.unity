@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44390696, g: 0.493284, b: 0.5727731, a: 1}
+  m_IndirectSpecularColor: {r: 0.44412577, g: 0.4935546, b: 0.57297254, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -398,7 +398,6 @@ GameObject:
   - component: {fileID: 348119160}
   - component: {fileID: 348119159}
   - component: {fileID: 348119158}
-  - component: {fileID: 348119157}
   - component: {fileID: 348119156}
   - component: {fileID: 348119155}
   m_Layer: 0
@@ -445,17 +444,6 @@ MonoBehaviour:
   m_BackgroundRendering: 1
   m_Scale: 1
   pointOfInterest: {x: 0, y: 0, z: 0}
---- !u!114 &348119157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 348119154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 562a9fe49bfc2418099790a804f22711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &348119158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,8 +940,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longitude: 0
   latitude: 0
-  hour: 19
-  minutes: 47
+  hour: 15
+  minutes: 24
   timeSpeed: 1
   frameSteps: 1
 --- !u!114 &819623373
@@ -1009,7 +997,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 819623371}
-  m_LocalRotation: {x: -0.34153304, y: 0.616779, z: -0.33782512, w: -0.62354875}
+  m_LocalRotation: {x: 0.33999777, y: 0.61553144, z: -0.33319747, w: 0.62809396}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

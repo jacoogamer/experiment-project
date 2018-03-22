@@ -15,8 +15,10 @@ public class GetGPS : MonoBehaviour
     private void Awake()
     {
 #if UNITY_ANDROID
-        UniAndroidPermission.IsPermitted(AndroidPermission.ACCESS_FINE_LOCATION);
-        RequestPermission();
+        if (UniAndroidPermission.IsPermitted(AndroidPermission.ACCESS_FINE_LOCATION))
+        {
+            RequestPermission();
+        }
 #endif
 
     }
@@ -63,8 +65,7 @@ public class GetGPS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ToggleGPS == null)
-            return;
+        
 
         GPSLocation = "Lat: " + Input.location.lastData.latitude + " Long: " + Input.location.lastData.longitude + "\nAltitude: " +
             Input.location.lastData.altitude + " horizontal Accuracy: " + Input.location.lastData.horizontalAccuracy + "\nTimestamp: " + Input.location.lastData.timestamp;
