@@ -8,7 +8,7 @@ public class LoadLevelwithString : MonoBehaviour
    
     public void LoadLevelWithString(string levelName)
     {
-       // SceneManager.LoadScene(levelName);
+        SceneManager.LoadScene(levelName);
        
 
 
