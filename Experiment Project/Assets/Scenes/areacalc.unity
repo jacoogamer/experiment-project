@@ -130,7 +130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &18409013
 RectTransform:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 540124178}
-  m_LocalRotation: {x: -0.24942236, y: 0.6569206, z: -0.24533157, w: -0.66787446}
+  m_LocalRotation: {x: -0.39611942, y: 0.5640583, z: -0.35320362, w: -0.6325938}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -481,8 +481,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longitude: 0
   latitude: 0
-  hour: 20
-  minutes: 53
+  hour: 19
+  minutes: 18
   timeSpeed: 1
   frameSteps: 1
 --- !u!1 &597589926
@@ -601,6 +601,7 @@ MonoBehaviour:
   OrginalRotation: {x: 0, y: 0, z: 0}
   Square: {fileID: 21300000, guid: 9436837637cf4b1409ee906bc74201a6, type: 3}
   TargetIcon: {fileID: 21300000, guid: dbe1d774ff25b114d8ec27b37be0b75e, type: 3}
+  centiMeters: 0
   MeasureButtonOff: 0
   Measurements: {x: 0, y: 0, z: 0}
   clickNum: 0
@@ -613,6 +614,7 @@ MonoBehaviour:
   lrMeasument: {fileID: 167629205}
   OnePlay: 0
   SecondOnePlay: 0
+  rawSize: 0
   totalcms: 0
   ListOfVectors: []
   numberOfLines: 0
@@ -1962,8 +1964,8 @@ GameObject:
   - component: {fileID: 1932185257}
   - component: {fileID: 1932185256}
   - component: {fileID: 1932185254}
-  - component: {fileID: 1932185253}
   - component: {fileID: 1932185252}
+  - component: {fileID: 1932185253}
   m_Layer: 0
   m_Name: AR Root
   m_TagString: Untagged
@@ -1998,7 +2000,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1932185251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9acf0b0c890fb9040b2f5da53bf54d86, type: 3}
+  m_Script: {fileID: 11500000, guid: 44611975f5fe78143b1b31b30ff06588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ARCamera: {fileID: 1794882086}

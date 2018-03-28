@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4369593, g: 0.4846354, b: 0.5648957, a: 1}
+  m_IndirectSpecularColor: {r: 0.4497012, g: 0.49686724, b: 0.56002265, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -398,8 +398,8 @@ GameObject:
   - component: {fileID: 348119160}
   - component: {fileID: 348119159}
   - component: {fileID: 348119157}
-  - component: {fileID: 348119156}
   - component: {fileID: 348119155}
+  - component: {fileID: 348119156}
   m_Layer: 0
   m_Name: AR Root
   m_TagString: Untagged
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 348119154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9acf0b0c890fb9040b2f5da53bf54d86, type: 3}
+  m_Script: {fileID: 11500000, guid: 44611975f5fe78143b1b31b30ff06588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ARCamera: {fileID: 115090813}
@@ -686,7 +686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &642082216
 RectTransform:
   m_ObjectHideFlags: 0
@@ -940,8 +940,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longitude: 0
   latitude: 0
-  hour: 18
-  minutes: 0
+  hour: 12
+  minutes: 57
   timeSpeed: 1
   frameSteps: 1
 --- !u!114 &819623373
@@ -997,7 +997,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 819623371}
-  m_LocalRotation: {x: -0.5003063, y: 0.49379057, z: -0.4457414, w: -0.55423737}
+  m_LocalRotation: {x: 0.12756875, y: 0.6825759, z: -0.12280777, w: 0.70903784}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

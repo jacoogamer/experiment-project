@@ -164,8 +164,9 @@ namespace UnityARInterface
             StopAllCoroutines();
             if (IsRunning)
             {
-                m_ARInterface.StopService();
                 Application.onBeforeRender -= OnBeforeRender;
+                m_ARInterface.StopService();
+                
             }
         }
 

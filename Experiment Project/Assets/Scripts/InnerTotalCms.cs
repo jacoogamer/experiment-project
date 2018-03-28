@@ -19,9 +19,12 @@ public class InnerTotalCms : MonoBehaviour
         CalculateButtonObject.SetActive(false);
         InnTotalCms.text = 0f.ToString();
     }
+
+   
+
     private void CalculateInnerArea()
     {
-
+ 
         List<Vector2> TempList = GetMeasurement.GetComponent<SetGazeOnARPlane>().ListOfVectors;
         // Use the triangulator to get indices for creating triangles
         Vector2[] vertices2D = TempList.ToArray();
@@ -40,11 +43,19 @@ public class InnerTotalCms : MonoBehaviour
         msh.RecalculateNormals();
         msh.RecalculateBounds();
 
+        float result = 0;
+        for (int p = msh.vertices.Length - 1, q = 0; q < msh.vertices.Length; p = q++)
+        {
+            result += (Vector3.Cross(msh.vertices[q], msh.vertices[p])).magnitude;
+        }
 
        
 
-        float mshfloat = msh.bounds.size.x * 100f;
-        InnTotalCms.text = mshfloat.ToString("f1") + "m";
+        float mshfloat = result * 0.5f;
+
+        
+        // float mshfloat = msh.bounds.size.x * msh.bounds.size.x;
+        //  InnTotalCms.text = mshfloat.ToString("f1") + "m";
 
         emptyGameObject = new GameObject();
         emptyGameObject.AddComponent<TextMesh>();
@@ -52,12 +63,13 @@ public class InnerTotalCms : MonoBehaviour
         emptyGameObject.GetComponent<TextMesh>().anchor = TextAnchor.UpperCenter;
         emptyGameObject.GetComponent<TextMesh>().color = Color.red;
         emptyGameObject.GetComponent<TextMesh>().alignment = TextAlignment.Left;
-        emptyGameObject.GetComponent<TextMesh>().characterSize = Vector3.Distance(Camera.main.transform.position, ZPosMeasurment.transform.position) / 50;
-        emptyGameObject.GetComponent<TextMesh>().text = mshfloat.ToString("f1") + "m";
-        
-        emptyGameObject.GetComponent<TextMesh>().transform.position = new Vector3(msh.bounds.center.x, ZPosMeasurment.transform.position.z);
-        
-        emptyGameObject.GetComponent<TextMesh>().transform.position = Vector3.Lerp(LineRend.GetComponent<SetGazeOnARPlane>().clonels.GetComponent<LineRenderer>().GetPosition(1), LineRend.GetComponent<SetGazeOnARPlane>().clonels.GetComponent<LineRenderer>().GetPosition(3), 0.6f);
+        emptyGameObject.GetComponent<TextMesh>().characterSize = Vector3.Distance(Camera.main.transform.position, ZPosMeasurment.transform.position) / 55;
+        emptyGameObject.GetComponent<TextMesh>().text = mshfloat.ToString("f2") + "m";
+        emptyGameObject.GetComponent<TextMesh>().transform.position =
+            Vector3.Lerp(new Vector3(LineRend.GetComponent<SetGazeOnARPlane>().clonels.GetComponent<LineRenderer>().GetPosition(0).x, LineRend.GetComponent<SetGazeOnARPlane>().clonels.GetComponent<LineRenderer>().GetPosition(0).y + 0.1f, LineRend.GetComponent<SetGazeOnARPlane>().clonels.GetComponent<LineRenderer>().GetPosition(0).z),
+            new Vector3(LineRend.GetComponent<SetGazeOnARPlane>().clonels.GetComponent<LineRenderer>().GetPosition(2).x, LineRend.GetComponent<SetGazeOnARPlane>().clonels.GetComponent<LineRenderer>().GetPosition(2).y + 0.1f, LineRend.GetComponent<SetGazeOnARPlane>().clonels.GetComponent<LineRenderer>().GetPosition(2).z), 0.6f);
+
+
 
     }
 
@@ -67,6 +79,12 @@ public class InnerTotalCms : MonoBehaviour
     {
         if (EnableMeasurement == true)
         {
+            LineRend.GetComponent<SetGazeOnARPlane>().totalcms += LineRend.GetComponent<SetGazeOnARPlane>().rawSize;
+
+            LineRend.GetComponent<SetGazeOnARPlane>().ListOfVectors.Add(LineRend.GetComponent<SetGazeOnARPlane>().PosFirst2.transform.position);
+            LineRend.GetComponent<SetGazeOnARPlane>().clickNum = 0;
+
+
             CalculateInnerArea();
             EnableMeasurement = false;
             GetMeasurement.GetComponent<SetGazeOnARPlane>().ListOfVectors.Clear();
@@ -100,8 +118,7 @@ public class InnerTotalCms : MonoBehaviour
 
         LineRend.GetComponent<SetGazeOnARPlane>().MeasureButtonOff = true;
         OnePlay = true;
-
-
+       
         EnableMeasurement = true;
 
         

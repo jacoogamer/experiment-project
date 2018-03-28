@@ -40,7 +40,9 @@ public class PlaceOnPlane : ARBase
         if (m_ObjectToPlace.gameObject.GetComponent<MeshRenderer>().enabled == true)
         {
             GameObject clone = Instantiate(TestCube, m_ObjectToPlace.GetComponent<MeshRenderer>().bounds.center, m_ObjectToPlace.transform.rotation);
-            clone.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            clone.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            GameObject GetParentObject = GameObject.FindGameObjectWithTag("TopCubeParent");
+            clone.transform.parent = GetParentObject.transform;
             //Destroy();
             m_ObjectToPlace.gameObject.GetComponent<MeshRenderer>().enabled = false;
             m_ObjectToPlace.gameObject.GetComponent<BoxCollider>().enabled = false;

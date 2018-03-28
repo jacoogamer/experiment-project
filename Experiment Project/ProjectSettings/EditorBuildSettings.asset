@@ -32,3 +32,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/A4Placement.unity
     guid: 07c191ceaac05ae4db992dd1eb8d54a7
+  - enabled: 1
+    path: Assets/Scenes/ARScreenshot.unity
+    guid: 5bb0f9f6e78b83342a8cdad74e720fd9

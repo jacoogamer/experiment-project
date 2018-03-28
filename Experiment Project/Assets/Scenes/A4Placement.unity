@@ -244,7 +244,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 540124178}
-  m_LocalRotation: {x: -0.25674477, y: 0.65410197, z: -0.25245962, w: -0.66520447}
+  m_LocalRotation: {x: 0.31658083, y: 0.61526144, z: -0.29574472, w: 0.6586084}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -264,8 +264,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longitude: 0
   latitude: 0
-  hour: 20
-  minutes: 48
+  hour: 15
+  minutes: 1
   timeSpeed: 1
   frameSteps: 1
 --- !u!1 &568052518
@@ -882,7 +882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &914140122
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1711,8 +1711,8 @@ GameObject:
   - component: {fileID: 1932185257}
   - component: {fileID: 1932185256}
   - component: {fileID: 1932185258}
-  - component: {fileID: 1932185253}
   - component: {fileID: 1932185252}
+  - component: {fileID: 1932185253}
   m_Layer: 0
   m_Name: AR Root
   m_TagString: Untagged
@@ -1747,7 +1747,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1932185251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9acf0b0c890fb9040b2f5da53bf54d86, type: 3}
+  m_Script: {fileID: 11500000, guid: 44611975f5fe78143b1b31b30ff06588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ARCamera: {fileID: 1794882086}

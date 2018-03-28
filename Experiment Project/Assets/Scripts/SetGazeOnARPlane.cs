@@ -12,7 +12,7 @@ public class SetGazeOnARPlane : ARBase
     public LayerMask mask;
     public Vector3 OrginalRotation;
     public Sprite Square, TargetIcon;
-
+    public bool centiMeters = true;
     void Start ()
     {
         lrMeasument.SetActive(false);
@@ -115,7 +115,7 @@ public class SetGazeOnARPlane : ARBase
     public bool OnePlay = false,SecondOnePlay = false;
     GameObject emptyGameObject;
     int postioncounts = 1;
-    float rawSize;
+    public float rawSize;
     public float totalcms = 0;
     private float t;
     //
@@ -181,8 +181,10 @@ public class SetGazeOnARPlane : ARBase
 
 
             rawSize = Vector3.Distance(PosFirst.transform.position, PosFirst2.transform.position);
-            Debug.Log(rawSize = rawSize * 100);
-
+            if(centiMeters)
+                rawSize = rawSize * 100;
+            else
+                rawSize = rawSize;
             if (SecondOnePlay == false)
             {
                 emptyGameObject = new GameObject();
@@ -215,9 +217,11 @@ public class SetGazeOnARPlane : ARBase
 
             }
 
-           
 
-            emptyGameObject.GetComponent<TextMesh>().text = rawSize.ToString("f1") + "cm";
+            if (centiMeters)
+                emptyGameObject.GetComponent<TextMesh>().text = rawSize.ToString("f1") + "cm";
+            else
+                emptyGameObject.GetComponent<TextMesh>().text = rawSize.ToString("f2") + "m";
             emptyGameObject.GetComponent<TextMesh>().transform.position =  new Vector3(PosFirst2.transform.position.x, PosFirst2.transform.position.y + 0.08f, PosFirst2.transform.position.z);
         }
 

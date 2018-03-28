@@ -7,6 +7,7 @@ TagManager:
   - ArPlane
   - TopCubeParent
   - FirstCollidePosition
+  - ARObjects
   layers:
   - Default
   - TransparentFX
