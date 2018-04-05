@@ -768,7 +768,7 @@ PlayerSettings:
     Purchasing: 0
     UNet: 0
     Unity_Ads: 0
-  facebookSdkVersion: 7.9.4
+  facebookSdkVersion: pluginIncompatible
   apiCompatibilityLevel: 2
   cloudProjectId: 
   projectName: 

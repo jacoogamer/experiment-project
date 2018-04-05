@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 using UnityEngine.UI;
-using UnityEngine.XR;
-using GoogleARCore;
+
+
 public class GetGPS : MonoBehaviour
 {
     private string GPSLocation;

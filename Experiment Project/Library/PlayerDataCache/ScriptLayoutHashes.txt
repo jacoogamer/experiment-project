@@ -1,6 +1,7 @@
 Android
 SceneListBegin?
 Assets/Scenes/Menu.unity
+Assets/Scenes/FBLogin.unity
 Assets/Scenes/A4measure.unity
 Assets/Scenes/ARCollider.unity
 Assets/Scenes/Realworldscale.unity
@@ -10,6 +11,7 @@ Assets/Scenes/GPS.unity
 Assets/UnityARInterface/ARRemote/RemoteDevice.unity
 Assets/Scenes/A4Placement.unity
 Assets/Scenes/ARScreenshot.unity
+Assets/Scenes/A4Session.unity
 SceneListEnd?
 965404130fdc42db238bffeebf1cf59d Assembly-CSharp.dll:.GetGPS
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityEngine.XR.iOS.UnityARKitControl
@@ -37,8 +39,10 @@ f8b19b97900ca06b9c1ad0eec4014aa2 Assembly-CSharp.dll:Lean.Touch.LeanFingerDown
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.OnSelectCube
 8c366d0d93a4f5e45097ef40b35dd82a Assembly-CSharp.dll:Lean.Touch.LeanFingerLine
 516e5cc4558edc3eaf07fa540ce485bf Assembly-CSharp.dll:.ColorPickerTester
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.AppEvents
 00a0ed29c0651d903a353b376e92bf81 Assembly-CSharp.dll:.SimpleShowCube
 5d56d57891485d75c62bcc75163d0eee Assembly-CSharp.dll:UnityARInterface.MatchingScalePicker
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.AccessTokenMenu
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -109,6 +113,7 @@ c63db43c730fa2cbb8ca07de15898cb6 UnityEngine.UI.dll:UnityEngine.UI.Toggle
 f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.Pay
 72f2094acbbef81528af188bd92eb702 Assembly-CSharp.dll:.BallMaker
 e3614d77c024e8379444f971096aaac4 Assembly-CSharp.dll:.UnityARCameraManager
 9ed622f1ea1aeb5f5018ad143a2009df Assembly-CSharp.dll:.UnityARFaceMeshManager
@@ -162,7 +167,9 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 ed572f3af48b9dc40a2bcb8990db1beb Assembly-CSharp.dll:.A4Placement
 8bb8d2e63730f43bf5eeaa11a50e0cc8 Assembly-CSharp.dll:GoogleARCore.HelloAR.HelloARController
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.AppLinks
 ae9fb675c8b24287ef316d862876c7ab Assembly-CSharp.dll:UnityARInterface.ARRemoteEditor
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.DialogShare
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UniAndroidPermission
 1aa197e52472a45dd989f68c13b67720 Assembly-CSharp.dll:UnityARInterface.CustomARController
 26215f135eeb48d8fa1189498c107f6c Vuforia.UnityExtensions.dll:Vuforia.AnchorBehaviour
@@ -238,9 +245,14 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
 a6fa1d0dafdcd8b660274d8f4edd386d Assembly-CSharp.dll:.DebugPlaneParticles
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.GraphRequest
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.LogView
+49f3066c011c128dec6386aa90ab2682 Assembly-CSharp.dll:.ARSessionManager
 0352182229dc15ceae98dd2533712b4a Assembly-CSharp.dll:GoogleARCore.ARCoreBackgroundRenderer
 e1f1285d86f3a1745afc7444b310fb42 Assembly-CSharp.dll:Lean.Touch.LeanPitchYaw
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Lean.Touch.LeanOpenUrl
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ARSessionSave
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.ConsoleBase
 a45385d3c9df0a6caa6f202d510a87f9 Assembly-CSharp.dll:.OptionsGUI
 7a1ee6c718479f4d3cf744edffe2ae7b Assembly-CSharp.dll:UnityEngine.XR.iOS.UnityRemoteVideo
 63ee4d254596e7e33706786578d0fdfc Assembly-CSharp.dll:.AR3DOFCameraManager
@@ -260,12 +272,31 @@ dd6501652c91cb163a39e051d37a965f Assembly-CSharp.dll:.Ballz
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GoogleARCore.HelloAR.PointcloudVisualizer
 382c7c9ce703be03145deee6cede17d4 Assembly-CSharp.dll:.StartARSession
 e31ef279e8d06182f0817ebd899ff54c Assembly-CSharp.dll:.UnityARUserAnchorExample
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Mobile.Android.AndroidFacebookGameObject
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Mobile.Android.AndroidFacebookLoader
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.AsyncRequestString
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Canvas.CanvasFacebookGameObject
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Canvas.CanvasFacebookLoader
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Editor.EditorFacebookGameObject
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Editor.EditorFacebookLoader
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Editor.Dialogs.EmptyMockDialog
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.FacebookScheduler
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.FB
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Gameroom.GameroomFacebookGameObject
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Gameroom.GameroomFacebookLoader
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Mobile.IOS.IOSFacebookGameObject
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Mobile.IOS.IOSFacebookLoader
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Canvas.JsBridge
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Editor.Dialogs.MockLoginDialog
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Editor.Dialogs.MockShareDialog
 5511a49b5104d2e14b66af50a17125f0 Assembly-CSharp.dll:.ParticlePainter
 48aa3fc9deef519d1772f787ec67a50d Assembly-CSharp.dll:.PlaceOnPlane
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.LoadLevelwithString
 e353101906474689643fc3c6d0a3ba4a Assembly-CSharp.dll:.ColorPicker
 dd6501652c91cb163a39e051d37a965f Assembly-CSharp.dll:UnityARInterface.ARBallzGO
+3f5cbc1d9f4acda6b17fda3fac658605 Assembly-CSharp.dll:.FBHolder
 e7f268767823a8cd19911699aa31f1ea Assembly-CSharp.dll:Lean.Touch.LeanMultiTapInfo
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.MainMenu
 16ae33ee0fbf8362ac99a6fb3e017cb6 Assembly-CSharp.dll:UnityARInterface.ARFocusSquare
 32e8fe00b63ed946490b898f6024a2f2 Facebook.Unity.Settings.dll:Facebook.Unity.Settings.FacebookSettings
 91b36326f294b619937373da443e69b6 Assembly-CSharp.dll:Lean.Touch.LeanTouch
@@ -288,6 +319,21 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 c3bbced3b920c972296954f059b11c2e Assembly-CSharp.dll:UnityEngine.UI.BoxSlider
 7317d05fdc27591726053b234b9ea5ee Assembly-CSharp.dll:.ColorSliderImage
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GoogleARCore.InstantPreviewTrackedPoseDriver
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Mobile.Android.AndroidFacebookGameObject
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Mobile.Android.AndroidFacebookLoader
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.AsyncRequestString
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Canvas.CanvasFacebookGameObject
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Canvas.CanvasFacebookLoader
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Editor.EditorFacebookGameObject
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Editor.EditorFacebookLoader
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Editor.Dialogs.EmptyMockDialog
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.FacebookScheduler
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.FB
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Mobile.IOS.IOSFacebookGameObject
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Mobile.IOS.IOSFacebookLoader
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Canvas.JsBridge
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Editor.Dialogs.MockLoginDialog
+05524b8f659e7bfe5756d1335fec24ba Facebook.Unity.dll:Facebook.Unity.Editor.Dialogs.MockShareDialog
 6ad53a0b0e1b7bbd14016abad1dad63a Assembly-CSharp.dll:Lean.Touch.LeanCameraMove
 8eb2443c71a17d7df9be0eaf3f3a993a Assembly-CSharp.dll:GoogleARCore.ARCoreSession
 7c8a14a56e8ba4ade538933f3f6ca91c Assembly-CSharp.dll:.ScrollItemManager
@@ -325,6 +371,7 @@ c23567de7068d554c905c20656a91b08 Assembly-CSharp.dll:Lean.Touch.LeanCameraMoveSm
 e151305212b6d9dd07d68e464b461420 Assembly-CSharp.dll:Lean.Touch.LeanFingerTap
 7d8efece13758701702f0b7310000a4d Assembly-CSharp.dll:.CheckIFInnerBoxCollide
 5f49a3ba79119aedd9a5931885dca9fb Assembly-CSharp.dll:Lean.Touch.LeanCameraZoom
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.AppInvites
 685d4c83b4896c997314336557dd18df Assembly-CSharp.dll:Lean.Touch.LeanFingerTrail
 493c211ab85ec2db8c090d3ba6c0a013 Assembly-CSharp.dll:Lean.Touch.LeanSelectableGraphicColor
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.BlendshapePrinter
@@ -338,6 +385,7 @@ e151305212b6d9dd07d68e464b461420 Assembly-CSharp.dll:Lean.Touch.LeanFingerTap
 54d74e58443c4a1cdc6a934a1c645ed6 Assembly-CSharp.dll:UnityARInterface.ARBallMover
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityARInterface.ARBase
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SyncPointsHolder
+32e8fe00b63ed946490b898f6024a2f2 Facebook.Unity.Settings.dll:Facebook.Unity.Settings.FacebookSettings
 d49c4dceabcd0f316458072a477aeae8 Assembly-CSharp.dll:Lean.Touch.LeanSpawn
 26215f135eeb48d8fa1189498c107f6c Vuforia.UnityExtensions.dll:Vuforia.AnchorBehaviour
 0561521e336e270e6e5a9c61387cb838 Vuforia.UnityExtensions.dll:Vuforia.AnchorInputListenerBehaviour
@@ -377,6 +425,7 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 8987ac454c3d5bfd44af7624be5e9b99 Assembly-CSharp.dll:.SetGazeOnARPlane
 1599adf36a90c6dd91987c85a00ee885 Assembly-CSharp.dll:Lean.Touch.LeanFingerHeld
 05012a5c4e5496c7da7c6bf88a0eb92a Assembly-CSharp.dll:Lean.Touch.LeanPitchYawSmooth
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.AppRequests
 c7b4e1cefa38e05c60ad69dee88481d8 Assembly-CSharp.dll:Lean.Touch.LeanSelectableRendererColor
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UnityARKitLightManager
 6c6b93abb40645ac770be8b9bea7bb4f Assembly-CSharp.dll:UnityARInterface.ARPointCloudVisualizer

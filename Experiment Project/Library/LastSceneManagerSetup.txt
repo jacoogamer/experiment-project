@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/ARScreenshot.unity
+- path: Assets/Scenes/A4Placement.unity
   isLoaded: 1
   isActive: 1
