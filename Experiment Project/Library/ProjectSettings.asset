@@ -161,7 +161,7 @@ PlayerSettings:
     Android: com.Experiment.Project
     Standalone: unity.Unity Technologies.Native Rendering Plugin Example
     Tizen: com.Company.ProductName
-    iOS: com.unity.arkitscene
+    iOS: com.Experiment.Project
     tvOS: com.Company.ProductName
   buildNumber:
     iOS: 0
@@ -352,7 +352,7 @@ PlayerSettings:
   m_TemplateCustomTags: {}
   mobileMTRendering:
     Android: 0
-    iPhone: 1
+    iPhone: 0
     tvOS: 1
   m_BuildTargetGroupLightmapEncodingQuality:
   - m_BuildTarget: Standalone
@@ -384,7 +384,7 @@ PlayerSettings:
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
   enableCrashReportAPI: 0
-  cameraUsageDescription: AR BABY
+  cameraUsageDescription: Camera Needed for ARKIT
   locationUsageDescription: 
   microphoneUsageDescription: 
   switchNetLibKey: 
