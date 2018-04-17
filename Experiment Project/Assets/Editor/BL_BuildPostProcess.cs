@@ -4,6 +4,8 @@ using UnityEditor.Callbacks;
 using System.Collections;
 using UnityEditor.iOS.Xcode;
 using System.IO;
+using System.Collections.Generic;
+using PlistCS;
 
 public class BL_BuildPostProcess
 {
@@ -31,11 +33,20 @@ public class BL_BuildPostProcess
             string plistPath = path + "/Info.plist";
             PlistDocument plist = new PlistDocument();
             plist.ReadFromString(File.ReadAllText(plistPath));
+            Dictionary<string, object> dict;
+            dict = (Dictionary<string, object>)Plist.readPlist(plistPath);
 
-            // Get root
-            PlistElementDict rootDict = plist.root;
-            rootDict.SetBoolean("UIRequiresFullScreen", true);
-            plist.WriteToFile(plistPath);
+            // update plist
+            dict["CFBundleURLTypes"] = new List<object> {
+        new Dictionary<string,object> {
+            { "CFBundleURLName", "google" },
+            { "CFBundleURLSchemes", new List<object> { "com.googleusercontent.apps.992185470650-4jaqc4vfhblcoq6dcfbhr5k1ek73qup0" } }
+        }
+            };
+
+
+            Plist.writeXml(dict, plistPath);
         }
     }
+    
 }
