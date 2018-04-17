@@ -19,19 +19,19 @@
         // Defer the configuration creation until Awake so the web Client ID
         // Can be set via the property inspector in the Editor.
         void Awake() {
-           
+            configuration = new GoogleSignInConfiguration
+            {
+                WebClientId = webClientId,
+                RequestIdToken = true
+            };
             if (PlayerPrefs.GetString("SignIn", "false") == "true")
             {
-               InvokeRepeating("OnSignIn", 0.0f, 0.5f);
+               InvokeRepeating("OnSignInSilently", 0.0f, 0.5f);
                 
             }
             else
             {
-                configuration = new GoogleSignInConfiguration
-                {
-                    WebClientId = webClientId,
-                    RequestIdToken = true
-                };
+               
                 LogIn.SetActive(true);
                 LogOut.SetActive(false);
 
@@ -41,7 +41,7 @@
         }
         public void SetSignInFalse()
         {
-            PlayerPrefs.SetString("SignIn", "false");
+            //PlayerPrefs.SetString("SignIn", "false");
         }
         private void OnDestroy()
         {
