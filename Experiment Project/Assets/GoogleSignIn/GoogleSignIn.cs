@@ -134,13 +134,20 @@ namespace Google {
       return tcs.Task;
     }
 
-    /// <summary>
-    /// Signs out the User.
-    /// </summary>
-    /// <remarks>Future sign-in attempts will require the user to select the
-    /// account to use when signing in.
-    /// </remarks>
-    public void SignOut() {
+        /// <summary>
+        /// Signs out the User.
+        /// </summary>
+        /// <remarks>Future sign-in attempts will require the user to select the
+        /// account to use when signing in.
+        /// </remarks>
+        /// 
+        public void NullSignOut()
+        {
+            theConfiguration = null;
+
+           
+        }
+        public void SignOut() {
       theConfiguration = null;
            
             impl.SignOut();
@@ -193,7 +200,9 @@ namespace Google {
     }
   }
 
-  internal interface ISignInImpl {
+   
+
+    internal interface ISignInImpl {
     Future<GoogleSignInUser> SignIn();
     Future<GoogleSignInUser> SignInSilently();
     void EnableDebugLogging(bool flag);

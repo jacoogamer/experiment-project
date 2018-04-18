@@ -5,7 +5,8 @@
   using Google;
   using UnityEngine;
   using UnityEngine.UI;
-    using System.Collections;
+  using System.Collections;
+  using UnityEngine.SceneManagement;
 
     public class GoogleSignin : MonoBehaviour {
 
@@ -15,42 +16,51 @@
     public GameObject LogIn, LogOut;
      
     private GoogleSignInConfiguration configuration;
-        
+
         // Defer the configuration creation until Awake so the web Client ID
         // Can be set via the property inspector in the Editor.
-        void Awake() {
+        void Awake()
+        {
+            
             configuration = new GoogleSignInConfiguration
             {
                 WebClientId = webClientId,
                 RequestIdToken = true
             };
-            if (PlayerPrefs.GetString("SignIn", "false") == "true")
+
+           
+            if (PlayerPrefs.GetString("Sign", "false") == "true")
             {
-               InvokeRepeating("OnSignInSilently", 0.0f, 0.5f);
-                
+
+                if (PlayerPrefs.GetString("SignOut", "false") == "false")
+                {
+                    
+                    OnSignInSilently();
+                }
+                else
+                {
+
+                    OnSignIn();
+                   
+                }
             }
             else
             {
                
                 LogIn.SetActive(true);
                 LogOut.SetActive(false);
-
             }
 
-            
         }
-        public void SetSignInFalse()
-        {
-            //PlayerPrefs.SetString("SignIn", "false");
-        }
+
         private void OnDestroy()
         {
-            OnSignOut();
+            GoogleSignIn.DefaultInstance.NullSignOut();
         }
 
         public void OnSignIn() {
 
-        GoogleSignIn.Configuration = configuration;
+            GoogleSignIn.Configuration = configuration;
         GoogleSignIn.Configuration.UseGameSignIn = false;
         GoogleSignIn.Configuration.RequestIdToken = true;
             AddStatusText("Calling SignIn");
@@ -62,6 +72,7 @@
     public void OnSignOut() {
       AddStatusText("Calling SignOut");
       GoogleSignIn.DefaultInstance.SignOut();
+            PlayerPrefs.SetString("SignOut", "false");
             LogIn.SetActive(true);
             LogOut.SetActive(false);
         }
@@ -96,8 +107,8 @@
                 AddStatusText("Canceled");
             } else
             {
-                CancelInvoke("OnSignIn");
-                PlayerPrefs.SetString("SignIn", "true");
+
+                PlayerPrefs.SetString("Sign", "true");
                 PlayerPrefs.Save();
                 AddStatusText("Welcome: " + task.Result.DisplayName + "!");
                 LogIn.SetActive(false);
@@ -127,11 +138,12 @@
             }
         }
         public void OnSignInSilently() {
-      GoogleSignIn.Configuration = configuration;
+            
+            GoogleSignIn.Configuration = configuration;
       GoogleSignIn.Configuration.UseGameSignIn = false;
       GoogleSignIn.Configuration.RequestIdToken = true;
       AddStatusText("Calling SignIn Silently");
-
+           
       GoogleSignIn.DefaultInstance.SignInSilently()
             .ContinueWith(OnAuthenticationFinished);
     }
