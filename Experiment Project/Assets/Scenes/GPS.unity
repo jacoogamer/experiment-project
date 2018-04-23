@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.35443398, g: 0.35519618, b: 0.32241443, a: 1}
+  m_IndirectSpecularColor: {r: 0.41387272, g: 0.43989468, b: 0.45217085, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -850,7 +850,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: cee533bdaf5c01a4091b972ae1bbb654, type: 3}
-    m_FontSize: 200
+    m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -941,7 +941,7 @@ MonoBehaviour:
   longitude: 0
   latitude: 0
   hour: 23
-  minutes: 38
+  minutes: 10
   timeSpeed: 1
   frameSteps: 1
 --- !u!114 &819623373
@@ -997,7 +997,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 819623371}
-  m_LocalRotation: {x: 0.008509569, y: 0.67738444, z: 0.007836777, w: -0.7355383}
+  m_LocalRotation: {x: -0.03007552, y: 0.6380511, z: -0.024954068, w: -0.76900166}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
