@@ -11,6 +11,17 @@ public class PlaceOnPlane : ARBase
     public GameObject TestCube;
 
     public bool OnePlay = true;
+	public void PlaneDeSelect()
+	{
+		gameObject.GetComponent<PlaceOnPlane> ().enabled = true;
+
+	}
+    public void PlaneSelect()
+    {
+		gameObject.GetComponent<PlaceOnPlane> ().enabled = false;
+
+
+    }
     void Update ()
     {
         if (Input.GetMouseButton(0))
