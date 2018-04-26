@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/ARCollider.unity
+- path: Assets/Scenes/ARGridView.unity
   isLoaded: 1
   isActive: 1

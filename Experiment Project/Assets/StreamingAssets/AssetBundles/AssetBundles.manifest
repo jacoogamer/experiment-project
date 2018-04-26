@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 2396466253
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: chair
+      Dependencies: {}
+    Info_1:
+      Name: toilet
+      Dependencies: {}
+    Info_2:
+      Name: polydeer
+      Dependencies: {}
+    Info_3:
+      Name: sofa
+      Dependencies: {}
+    Info_4:
+      Name: dresser
+      Dependencies: {}
+    Info_5:
+      Name: sik
+      Dependencies: {}
