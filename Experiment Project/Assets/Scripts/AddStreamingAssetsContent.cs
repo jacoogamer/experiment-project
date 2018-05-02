@@ -8,7 +8,7 @@ using Lean.Touch;
 using Aidar_;
 using Aidar_.StreamingAssets;
 using Aidar_.StreamingAssets.ZipArchive;
-
+using System;
 public class AddStreamingAssetsContent : MonoBehaviour
 {
 
@@ -17,17 +17,22 @@ public class AddStreamingAssetsContent : MonoBehaviour
 	DirectoryInfo directoryInfo;
 	public GameObject MenuList;
 	private Texture2D Text2D;
+
+	string[] paths;byte[] data;
+
+	public GameObject[] GetAllObjects;
+	public InputField RefineListInput; 
 	void Start ()
 	{
 
 		Aidar_StreamingAssets.Initialize();
-		string[] paths = Aidar_StreamingAssets.GetFiles("Sprites", "*.jpg", SearchOption.AllDirectories).
+		paths = Aidar_StreamingAssets.GetFiles("Sprites", "*.jpg", SearchOption.AllDirectories).
 			Concat(Aidar_StreamingAssets.GetFiles("Sprites", "*.png", SearchOption.AllDirectories)).ToArray(); 
 
 		foreach(string path in paths)
 		{
 			Debug.Log (path);
-			byte[] data = Aidar_StreamingAssets.ReadAllBytes(path);
+			data = Aidar_StreamingAssets.ReadAllBytes(path);
 			Text2D = new Texture2D (512,512);
 			Text2D.LoadImage (data);
 			Text2D.Apply ();
@@ -35,17 +40,32 @@ public class AddStreamingAssetsContent : MonoBehaviour
 			var repath = s.Substring(s.IndexOf("/") + 1);
 			AddButtons (repath, Text2D);
 		}
+
+		RefineListInput.onValueChanged.AddListener
+		(
+			delegate 
+			{
+				RefineListByInput (RefineListInput.text);
+			}
+		);
 	}
 
 
 
-
+	[SerializeField]
+	private int NumberOfCharsShow;
 	void AddButtons (string objectName, Texture2D texture)
 	{
 
 		GameObject UnderContent = Instantiate (StreamingButtonPrefab);
 		UnderContent.transform.parent = gameObject.transform;
-		UnderContent.name = objectName;
+
+		//Get string replace . extersions then set number of characters by linq
+		string objectNameRemoveString = System.Text.RegularExpressions.Regex.Replace (objectName, "[.jpg|.png]", "");
+		objectNameRemoveString = new string(objectNameRemoveString.Take(NumberOfCharsShow).ToArray());
+		UnderContent.name = objectNameRemoveString;
+		UnderContent.GetComponentInChildren<Text> ().text = objectNameRemoveString.ToString ();
+
 		UnderContent.GetComponent<Image> ().sprite = Sprite.Create (texture, new Rect (0, 0, texture.width, texture.height), Vector2.zero);
 		UnderContent.GetComponent<RectTransform> ().localScale = new Vector3 (1F, 1F, 1F);
 		UnderContent.GetComponent<Button> ().onClick.AddListener (delegate {
@@ -86,6 +106,22 @@ public class AddStreamingAssetsContent : MonoBehaviour
 		obj.transform.position = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y - 2f, Camera.main.transform.position.z + 5f);
 		asseBundle.Unload (false);
 		MenuList.SetActive (false);
+	}
+
+
+	private void RefineListByInput(string inputValue)
+	{
+		foreach (Transform item in gameObject.GetComponentInChildren<Transform>()) 
+		{
+			if (item.gameObject.name.IndexOf (inputValue,StringComparison.OrdinalIgnoreCase) != -1)
+			{
+				item.gameObject.SetActive (true);	
+			} else 
+			{
+				item.gameObject.SetActive (false);
+			}
+
+		}
 	}
 
 }
