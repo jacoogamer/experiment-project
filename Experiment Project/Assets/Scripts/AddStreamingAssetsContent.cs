@@ -22,6 +22,10 @@ public class AddStreamingAssetsContent : MonoBehaviour
 
 	public GameObject[] GetAllObjects;
 	public InputField RefineListInput; 
+
+	//
+
+	int count = 0;
 	void Start ()
 	{
 
@@ -56,6 +60,7 @@ public class AddStreamingAssetsContent : MonoBehaviour
 	private int NumberOfCharsShow;
 	void AddButtons (string objectName, Texture2D texture)
 	{
+		
 
 		GameObject UnderContent = Instantiate (StreamingButtonPrefab);
 		UnderContent.transform.parent = gameObject.transform;
@@ -72,26 +77,32 @@ public class AddStreamingAssetsContent : MonoBehaviour
 			CreateMesh (objectName);
 
 		});
+
+
 	}
 
 	void CreateMesh (string MeshName)
 	{
+		
 		Debug.Log (MeshName);
 		string MeshNameReplace = System.Text.RegularExpressions.Regex.Replace (MeshName, "[.jpg|.png]", "");
 		Debug.Log (MeshNameReplace);
 		StartCoroutine (loadAsset (MeshNameReplace, MeshNameReplace));
+
 	}
+
+
 
 	public Text TextDebug;
 
 	IEnumerator loadAsset (string assetBundleName, string objectNameToLoad)
 	{
-		var assetBundleCreateRequest = Aidar_StreamingAssets.LoadAssetBundleAsync("AssetBundles/" + objectNameToLoad);
+		var assetBundleCreateRequest = Aidar_StreamingAssets.LoadAssetBundleAsync("AssetBundles/" + objectNameToLoad.ToLower());
 		yield return assetBundleCreateRequest;
 
 		AssetBundle asseBundle = assetBundleCreateRequest.assetBundle;
 
-		AssetBundleRequest asset = asseBundle.LoadAssetAsync<GameObject> (objectNameToLoad);
+		AssetBundleRequest asset = asseBundle.LoadAssetAsync<GameObject> (objectNameToLoad.ToLower());
 		yield return asset;
 
 		GameObject loadedAsset = asset.asset as GameObject;
