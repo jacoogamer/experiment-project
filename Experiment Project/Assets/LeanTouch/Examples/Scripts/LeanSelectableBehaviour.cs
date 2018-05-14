@@ -25,6 +25,8 @@ namespace Lean.Touch
 		{
 			UpdateSelectable();
 
+			if (gameObject == null)
+				return;
 			// Hook LeanSelectable events
 			selectable.OnSelect.AddListener(OnSelect);
 			selectable.OnSelectUp.AddListener(OnSelectUp);

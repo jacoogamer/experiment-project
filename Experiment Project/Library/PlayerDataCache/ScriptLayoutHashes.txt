@@ -299,7 +299,7 @@ e151305212b6d9dd07d68e464b461420 Assembly-CSharp.dll:Lean.Touch.LeanFingerTap
 48b4f2bb90cadfa8931f7d8baac4245e Assembly-CSharp.dll:.ColorSlider
 48aac773de77753c007e6b8e5fa95d61 Assembly-CSharp.dll:.ColorPresets
 5652388a27686e3b4c5bbff6e0e7c256 Assembly-CSharp.dll:Lean.Touch.LeanFingerUp
-56e0f88d4c62bd1d2170d35e401a29f1 Assembly-CSharp.dll:.DestroyParentCube
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DestroyParentCube
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityARInterface.ARLightEstimate
 54d74e58443c4a1cdc6a934a1c645ed6 Assembly-CSharp.dll:UnityARInterface.ARBallMover
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityARInterface.ARBase

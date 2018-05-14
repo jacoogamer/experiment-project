@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class DestroyParentCube : MonoBehaviour
 {
-    public GameObject TopCube;
+    
 
 	public void TopCubeDestroy()
     {
-        Destroy(TopCube);
+		Destroy(gameObject.transform.parent.gameObject);
+
 	}
 
     private void Update()

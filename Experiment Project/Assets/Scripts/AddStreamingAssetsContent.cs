@@ -114,6 +114,11 @@ public class AddStreamingAssetsContent : MonoBehaviour
 		obj.AddComponent<LeanTranslate> ();
 		obj.AddComponent<LeanSelectableRendererColor> ();
 		obj.AddComponent<BoxCollider> ();
+		//Add button under button
+		GameObject CloseButton = (GameObject)Instantiate(Resources.Load("DestroyBtnTopObj"));
+		CloseButton.transform.parent = obj.transform;
+		CloseButton.AddComponent<DestroyParentCube> ();
+		//
 		obj.transform.position = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y - 2f, Camera.main.transform.position.z + 5f);
 		asseBundle.Unload (false);
 		MenuList.SetActive (false);
