@@ -34,7 +34,7 @@ public class SetGazeOnARPlane : ARBase
 				);
 
 				
-				emptyGameObject.GetComponent<TextMesh> ().transform.position = HalfOfPosition;
+			emptyGameObject.GetComponent<TextMesh> ().transform.position = new Vector3(HalfOfPosition.x,HalfOfPosition.y + 0.05f,HalfOfPosition.z );
 				
 
             }
@@ -196,7 +196,7 @@ public class SetGazeOnARPlane : ARBase
             if (SecondOnePlay == false)
             {
                 emptyGameObject = new GameObject();
-                emptyGameObject.transform.parent = clonels.transform;
+               	//emptyGameObject.transform.parent = clonels.transform;
                 emptyGameObject.AddComponent<TextMesh>();
                 emptyGameObject.AddComponent<LookAtCamera>();
                 emptyGameObject.GetComponent<TextMesh>().anchor = TextAnchor.UpperCenter;
@@ -204,9 +204,9 @@ public class SetGazeOnARPlane : ARBase
                 emptyGameObject.GetComponent<TextMesh>().alignment = TextAlignment.Left;
                 emptyGameObject.GetComponent<TextMesh>().characterSize = Vector3.Distance(Camera.main.transform.position, PosFirst2.transform.position) / 60;
 
+
                 SecondOnePlay = true;
 
-               
             }
 
              
@@ -214,13 +214,13 @@ public class SetGazeOnARPlane : ARBase
             if (clickplus == 1)
             {
                 
-                clonels.GetComponent<LineRenderer>().SetPosition(1, PosFirst2.transform.position);
+				clonels.GetComponent<LineRenderer>().SetPosition(1, PosFirst2.transform.position);
                
             }
             else
             {
                
-                clonels.GetComponent<LineRenderer>().SetPosition(clickplus, PosFirst2.transform.position);
+				clonels.GetComponent<LineRenderer>().SetPosition(clickplus, PosFirst2.transform.position);
                 
 
             }
@@ -230,7 +230,9 @@ public class SetGazeOnARPlane : ARBase
                 emptyGameObject.GetComponent<TextMesh>().text = rawSize.ToString("f1") + "cm";
             else
                 emptyGameObject.GetComponent<TextMesh>().text = rawSize.ToString("f2") + "m";
-            emptyGameObject.GetComponent<TextMesh>().transform.position =  new Vector3(PosFirst2.transform.position.x, PosFirst2.transform.position.y, PosFirst2.transform.position.z);
+         
+
+
         }
 
 

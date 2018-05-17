@@ -64,7 +64,7 @@ public class InnerTotalCms : MonoBehaviour
         emptyGameObject.GetComponent<TextMesh>().color = Color.red;
         emptyGameObject.GetComponent<TextMesh>().alignment = TextAlignment.Left;
         emptyGameObject.GetComponent<TextMesh>().characterSize = Vector3.Distance(Camera.main.transform.position, ZPosMeasurment.transform.position) / 55;
-		emptyGameObject.GetComponent<TextMesh>().text = mshfloat.ToString("f2") + "m";
+		emptyGameObject.GetComponent<TextMesh>().text = mshfloat.ToString("f2") + "m2";
 		emptyGameObject.GetComponent<TextMesh> ().anchor = TextAnchor.UpperCenter;
         emptyGameObject.GetComponent<TextMesh>().transform.position =
             Vector3.Lerp(new Vector3(LineRend.GetComponent<SetGazeOnARPlane>().clonels.GetComponent<LineRenderer>().GetPosition(0).x, LineRend.GetComponent<SetGazeOnARPlane>().clonels.GetComponent<LineRenderer>().GetPosition(0).y + 0.1f, LineRend.GetComponent<SetGazeOnARPlane>().clonels.GetComponent<LineRenderer>().GetPosition(0).z),
