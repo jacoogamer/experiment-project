@@ -9,6 +9,7 @@ TagManager:
   - FirstCollidePosition
   - ARObjects
   - ARSessionCube
+  - M1
   layers:
   - Default
   - TransparentFX

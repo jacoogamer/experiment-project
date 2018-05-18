@@ -6,44 +6,44 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/1MainMenu.unity
     guid: 19de228b98cc0d04bb93dd669e2313a9
   - enabled: 1
-    path: Assets/Scenes/ARGridView.unity
+    path: Assets/Scenes/2ARGridView.unity
     guid: 7c8fb7c05df1386449bc08512f162c91
   - enabled: 1
-    path: Assets/Scenes/GoogleLogIn.unity
-    guid: 4dbc020c6ee6d47e2a668e83cc5ee276
-  - enabled: 1
-    path: Assets/Scenes/FBLogin.unity
-    guid: a07d5ed12241aea4a93a00054058c337
-  - enabled: 1
-    path: Assets/Scenes/A4measure.unity
-    guid: c6d32e4539bb7884d96cdc53d93afd51
-  - enabled: 1
-    path: Assets/Scenes/ARCollider.unity
-    guid: 424def87e03f04443b233f5f136989dd
-  - enabled: 1
-    path: Assets/Scenes/Realworldscale.unity
-    guid: 1d44506d9601e3642ab441652d31f28b
-  - enabled: 1
-    path: Assets/Scenes/MultiSidedFloor.unity
-    guid: 8b07a67c3dd29cc4dbc1c181a2a34b5a
-  - enabled: 1
-    path: Assets/Scenes/areacalc.unity
+    path: Assets/Scenes/3AreaCalc.unity
     guid: 8d06ffd8e9e35a947a110c106f098775
   - enabled: 1
-    path: Assets/Scenes/GPS.unity
+    path: Assets/Scenes/ToTest/GoogleLogIn.unity
+    guid: 4dbc020c6ee6d47e2a668e83cc5ee276
+  - enabled: 1
+    path: Assets/Scenes/ToTest/FBLogin.unity
+    guid: a07d5ed12241aea4a93a00054058c337
+  - enabled: 1
+    path: Assets/Scenes/ToTest/A4measure.unity
+    guid: c6d32e4539bb7884d96cdc53d93afd51
+  - enabled: 1
+    path: Assets/Scenes/ToTest/ARCollider.unity
+    guid: 424def87e03f04443b233f5f136989dd
+  - enabled: 1
+    path: Assets/Scenes/ToTest/Realworldscale.unity
+    guid: 1d44506d9601e3642ab441652d31f28b
+  - enabled: 1
+    path: Assets/Scenes/ToTest/MultiSidedFloor.unity
+    guid: 8b07a67c3dd29cc4dbc1c181a2a34b5a
+  - enabled: 1
+    path: Assets/Scenes/ToTest/GPS.unity
     guid: f53c88de94af7d64684d3a8dbb2fc8de
   - enabled: 1
     path: Assets/UnityARInterface/ARRemote/RemoteDevice.unity
     guid: 20b446302c6bc5a4db8e59fc358aba13
   - enabled: 1
-    path: Assets/Scenes/A4Placement.unity
+    path: Assets/Scenes/ToTest/A4Placement.unity
     guid: 07c191ceaac05ae4db992dd1eb8d54a7
   - enabled: 1
-    path: Assets/Scenes/ARScreenshot.unity
+    path: Assets/Scenes/ToTest/ARScreenshot.unity
     guid: 5bb0f9f6e78b83342a8cdad74e720fd9
   - enabled: 1
-    path: Assets/Scenes/A4Session.unity
+    path: Assets/Scenes/ToTest/A4Session.unity
     guid: 2fa72d8fb29ee8842a5f4b455c564510

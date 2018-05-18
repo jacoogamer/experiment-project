@@ -20,6 +20,11 @@ public class SetGazeOnARPlane : ARBase
 	
 	void Update ()
     {
+		if (clonels != null) {
+			FirstPointOFLR = clonels.GetComponent<LineRenderer> ().GetPosition (0);
+			if (Application.loadedLevelName == "3AreaCalc" || Application.loadedLevelName == "A4measure" || Application.loadedLevelName == "MultiSidedFloor")
+				FirstCollidePosition.transform.position = FirstPointOFLR;
+		}
         SetPosition();
         CalculateSize();
            
@@ -61,7 +66,7 @@ public class SetGazeOnARPlane : ARBase
             {
                 MeasureButton.SetActive(false);
             }
-                NewMeasureButton.SetActive(true);
+                //NewMeasureButton.SetActive(true);
                 FakeRecticleImage.GetComponent<Image>().sprite = TargetIcon;
                 FakeRecticleImage.transform.localScale = new Vector3(0.0005f, 0.0005f, 0.0005f);
                
@@ -73,7 +78,7 @@ public class SetGazeOnARPlane : ARBase
             FakeRecticleImage.GetComponent<Image>().sprite = Square;
             FakeRecticleImage.transform.localScale = new Vector3(0.00005f, 0.00005f, 0.00005f);
             MeasureButton.SetActive(false);
-            NewMeasureButton.SetActive(false);
+            //NewMeasureButton.SetActive(false);
 
 
         }
@@ -88,7 +93,27 @@ public class SetGazeOnARPlane : ARBase
     public GameObject clonels;
     public GameObject lrMeasument;
     private ARInterface.PointCloud m_PointCloud;
-    
+
+
+	public void MainButton()
+	{
+		RaycastHit newHitInfo;
+		if (clickplus > 0 && clickNum == 0) 
+		{
+			if (Physics.Raycast (Camera.main.transform.position, Camera.main.transform.forward, out newHitInfo, float.MaxValue) && newHitInfo.collider.gameObject.tag == "M1") 
+			{
+				Debug.Log ("Inner Clicks");
+				ClickOnMeasurmentButton ();
+			}
+			else
+				NewBound ();
+		} 
+		else 
+		{
+			ClickOnMeasurmentButton ();
+		}
+	}
+
     public void NewBound()
     {
         OnePlay = false;
@@ -99,12 +124,14 @@ public class SetGazeOnARPlane : ARBase
 
     public void ClickOnMeasurmentButton()
     {
+		RaycastHit newhitInfo;
         if (clickNum == 0)
         {
-            clickNum = 1;
-            ++clickplus;
-            
-        }
+			clickNum = 1;
+			++clickplus;
+
+		} 
+        
         else if (clickNum == 2)
         {
             totalcms += rawSize;
@@ -132,6 +159,7 @@ public class SetGazeOnARPlane : ARBase
 
     public Vector3 FirstPointOFLR;
     public GameObject FirstCollidePosition;
+	public GameObject ZPosMeasurment;
     public void CalculateSize()
     {
 
@@ -165,9 +193,7 @@ public class SetGazeOnARPlane : ARBase
                 if (clickplus == 0)
                 {
                     clonels.GetComponent<LineRenderer>().SetPosition(0, PosFirst.transform.position);
-                    FirstPointOFLR = clonels.GetComponent<LineRenderer>().GetPosition(0);
-                    if(Application.loadedLevelName == "areacalc")
-                        FirstCollidePosition.transform.position = FirstPointOFLR;
+                   
                     ++clickplus;
                 }
                 else
@@ -219,8 +245,11 @@ public class SetGazeOnARPlane : ARBase
             }
             else
             {
-               
-				clonels.GetComponent<LineRenderer>().SetPosition(clickplus, PosFirst2.transform.position);
+				if (ZPosMeasurment.GetComponent<CheckIFInnerBoxCollide> ().BoxCollideTouching == false) {
+					clonels.GetComponent<LineRenderer> ().SetPosition (clickplus, PosFirst2.transform.position);
+				} else {
+					clonels.GetComponent<LineRenderer> ().SetPosition (clickplus, clonels.GetComponent<LineRenderer> ().GetPosition(0));
+				}
                 
 
             }

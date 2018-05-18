@@ -117,7 +117,7 @@ public class InnerTotalCms : MonoBehaviour
     {
 
 
-        LineRend.GetComponent<SetGazeOnARPlane>().MeasureButtonOff = true;
+        //LineRend.GetComponent<SetGazeOnARPlane>().MeasureButtonOff = true;
         OnePlay = true;
        
         EnableMeasurement = true;
