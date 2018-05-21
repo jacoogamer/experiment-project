@@ -299,7 +299,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 540124178}
-  m_LocalRotation: {x: 0.19148019, y: 0.54709715, z: 0.1302315, w: -0.8044003}
+  m_LocalRotation: {x: -0.32854667, y: 0.47295448, z: 0.19576253, w: 0.7937557}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -319,8 +319,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longitude: 0
   latitude: 0
-  hour: 1
-  minutes: 20
+  hour: 8
+  minutes: 12
   timeSpeed: 1
   frameSteps: 1
 --- !u!1 &597589926
@@ -450,6 +450,8 @@ MonoBehaviour:
   NewMeasureButton: {fileID: 768822232}
   clonels: {fileID: 0}
   lrMeasument: {fileID: 167629205}
+  LineMarkers: {fileID: 1341946859535678, guid: 870391140ccab5f44b300252895774a9,
+    type: 2}
   OnePlay: 0
   SecondOnePlay: 0
   rawSize: 0

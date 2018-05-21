@@ -121,7 +121,7 @@ public class SetGazeOnARPlane : ARBase
         clickplus = 0;
         totalcms = 0;
     }
-
+	public GameObject LineMarkers;
     public void ClickOnMeasurmentButton()
     {
 		RaycastHit newhitInfo;
@@ -137,7 +137,7 @@ public class SetGazeOnARPlane : ARBase
             totalcms += rawSize;
             ListOfVectors.Add(PosFirst2.transform.position);
             clickNum = 0;
-            
+			Instantiate (LineMarkers, clonels.GetComponent<LineRenderer> ().GetPosition (clickplus), Quaternion.identity);
             Debug.Log(numberOfLines);
         }
        
