@@ -110,6 +110,7 @@ public class AddStreamingAssetsContent : MonoBehaviour
 		GameObject GetParentObject = GameObject.FindGameObjectWithTag ("TopCubeParent");
 		obj.transform.parent = GetParentObject.transform;
 		obj.AddComponent<LeanRotate> ();
+		obj.GetComponent<LeanRotate>().RotateAxis = new Vector3(0f,-1f,0f);
 		obj.AddComponent<LeanSelectable> ();
 		obj.AddComponent<LeanTranslate> ();
 		obj.AddComponent<LeanSelectableRendererColor> ();
@@ -119,7 +120,8 @@ public class AddStreamingAssetsContent : MonoBehaviour
 		CloseButton.transform.parent = obj.transform;
 		CloseButton.AddComponent<DestroyParentCube> ();
 		//
-		obj.transform.position = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y - 2f, Camera.main.transform.position.z + 5f);
+	
+			obj.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 2f;
 		asseBundle.Unload (false);
 		MenuList.SetActive (false);
 	}
