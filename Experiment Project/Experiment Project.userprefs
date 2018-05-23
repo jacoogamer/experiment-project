@@ -7,7 +7,7 @@
       <File FileName="Assets\Scripts\Aidar_StreamingScripts\Aidar_StreamingAssets\Aidar_PathUtil.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Aidar_StreamingScripts\Aidar_StreamingAssets\Aidar_SubReadOnlyStream.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Aidar_StreamingScripts\Aidar_StreamingAssets\Aidar_ZipArchive.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AddStreamingAssetsContent.cs" Line="124" Column="96" />
+      <File FileName="Assets\Scripts\AddStreamingAssetsContent.cs" Line="112" Column="94" />
       <File FileName="Assets\Scripts\GetGPS.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Aidar_StreamingScripts\Aidar_StreamingAssets\MenuActiveItSelf.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\InnerTotalCms.cs" Line="1" Column="1" />
@@ -18,6 +18,8 @@
       <File FileName="Assets\Scripts\LookAtCamera.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Sun.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CheckIFInnerBoxCollide.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\RealWorldScale.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ARGridRealWorldScale.cs" Line="13" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

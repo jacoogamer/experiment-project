@@ -155,7 +155,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 47cf20cc289832e9d0a08b6a7ca8c787 Assembly-CSharp.dll:.ARCameraTracker
 4fe9c9fc13767168de00f9d8cf1a4ddc Assembly-CSharp.dll:.ObjectShooter
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-622a6bf1a28a755c662bb9123fd34da0 Assembly-CSharp.dll:.RealWorldScale
+fc88519650eac9b5c3ba5ba2abfe5a5d Assembly-CSharp.dll:.RealWorldScale
 39c1b55c595755c48c3ed2b7db14b332 Assembly-CSharp.dll:.DemoGUI
 381ce6ca82673f74d791480ddfe87363 Assembly-CSharp.dll:Lean.Touch.LeanFingerSwipe
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GoogleARCore.EnvironmentalLight
@@ -456,3 +456,4 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UnityARCameraNearFar
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ARGridRealWorldScale

@@ -6,7 +6,7 @@ public class RealWorldScale : MonoBehaviour {
 
     public GameObject Cube;
 
-    public InputField Xvalue, Yvalue, Zvalue;
+	private InputField Xvalue, Yvalue, Zvalue;
 
 	void Start ()
     {
@@ -19,8 +19,10 @@ public class RealWorldScale : MonoBehaviour {
     {
         var GameObject = Instantiate(Cube, new Vector3(0F, 0F, 6F), Quaternion.identity);
         
-        GameObject.transform.localScale = new Vector3(float.Parse(Xvalue.text) / 100f, float.Parse(Yvalue.text) / 100f, float.Parse(Zvalue.text) / 100f);
-
+		GameObject.transform.localScale = new Vector3(float.Parse(GameObject.FindGameObjectWithTag("Xvalue").GetComponent<InputField>().text) / 100f, 
+			float.Parse(GameObject.FindGameObjectWithTag("Yvalue").GetComponent<InputField>().text) / 100f, 
+			float.Parse(GameObject.FindGameObjectWithTag("Zvalue").GetComponent<InputField>().text) / 100f);
+		
         if (float.Parse(Zvalue.text) < 200)
             GameObject.transform.position = new Vector3(0F, 0F, 2F);
         else if(float.Parse(Zvalue.text) >= 200 && float.Parse(Zvalue.text) <= 400)
@@ -33,5 +35,6 @@ public class RealWorldScale : MonoBehaviour {
             GameObject.transform.position = new Vector3(0F, 0F, 7F);
         else if (float.Parse(Zvalue.text) == 1000)
             GameObject.transform.position = new Vector3(0F, 0F, 8F);
+		
     }
 }

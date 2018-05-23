@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3196869918
+CRC: 2298337233
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: afb0853d07c5f6a96109ed29891f0c2a
+    Hash: 97912023e08f978d874e06bf4beae556
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 7fb13fbf16d124b3dc6516fa83d3004f
+    Hash: f90f4dba508ac5b64ac277443410fe8e
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,16 +17,46 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 23
   Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
 - Class: 33
   Script: {instanceID: 0}
 - Class: 43
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
 - Class: 90
   Script: {instanceID: 0}
 - Class: 95
   Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4e152a61f4b710541a8a7a64ddf6e49e, type: 3}
+- Class: 114
+  Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 52d72cc6210cb7144a24acb7402222a6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 83dcd8dace8b7fe449d796b980cb121d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4eda371e5375f454490a86f21559ee38, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9400c96e5c6a69c439165838d2f85c3a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f26364e6ef7c9cd43ad3f27569b650a4, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
 Assets:
-- Assets/FBX/Dresser.fbx
+- Assets/Prefabs/AssetBundles GameObjects/dresser.prefab
 Dependencies: []

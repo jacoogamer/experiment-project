@@ -1,22 +1,22 @@
 ManifestFileVersion: 0
-CRC: 2002155984
+CRC: 3186591457
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: chair
       Dependencies: {}
     Info_1:
-      Name: toilet
-      Dependencies: {}
-    Info_2:
       Name: polydeer
       Dependencies: {}
-    Info_3:
+    Info_2:
       Name: sofa
       Dependencies: {}
-    Info_4:
+    Info_3:
       Name: dresser
       Dependencies: {}
-    Info_5:
+    Info_4:
       Name: sik
+      Dependencies: {}
+    Info_5:
+      Name: toilet
       Dependencies: {}

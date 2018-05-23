@@ -199,6 +199,7 @@
      <Compile Include="Assets\Scripts\Aidar_StreamingScripts\Aidar_StreamingAssets\Aidar_SubReadOnlyStream.cs" />
      <Compile Include="Assets\Scripts\Aidar_StreamingScripts\Aidar_StreamingAssets\Aidar_ZipArchive.cs" />
      <Compile Include="Assets\Scripts\Aidar_StreamingScripts\Aidar_StreamingAssets\MenuActiveItSelf.cs" />
+     <Compile Include="Assets\Scripts\ARGridRealWorldScale.cs" />
      <Compile Include="Assets\Scripts\ARPlaneFind.cs" />
      <Compile Include="Assets\Scripts\ARSessionManager.cs" />
      <Compile Include="Assets\Scripts\ARSessionSave.cs" />

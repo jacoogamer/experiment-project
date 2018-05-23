@@ -116,6 +116,7 @@ public class SetGazeOnARPlane : ARBase
 
     public void NewBound()
     {
+		
         OnePlay = false;
         clickNum = 1;
         clickplus = 0;
@@ -193,11 +194,12 @@ public class SetGazeOnARPlane : ARBase
                 if (clickplus == 0)
                 {
                     clonels.GetComponent<LineRenderer>().SetPosition(0, PosFirst.transform.position);
-                   
+					Instantiate (LineMarkers, clonels.GetComponent<LineRenderer> ().GetPosition (clickplus), Quaternion.identity);
                     ++clickplus;
                 }
                 else
                 {
+					
                     clonels.GetComponent<LineRenderer>().SetPosition(clickplus, PosFirst.transform.position);
                     
                 }

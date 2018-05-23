@@ -109,19 +109,8 @@ public class AddStreamingAssetsContent : MonoBehaviour
 		GameObject obj = (GameObject)Instantiate (loadedAsset);
 		GameObject GetParentObject = GameObject.FindGameObjectWithTag ("TopCubeParent");
 		obj.transform.parent = GetParentObject.transform;
-		obj.AddComponent<LeanRotate> ();
-		obj.GetComponent<LeanRotate>().RotateAxis = new Vector3(0f,-1f,0f);
-		obj.AddComponent<LeanSelectable> ();
-		obj.AddComponent<LeanTranslate> ();
-		obj.AddComponent<LeanSelectableRendererColor> ();
-		obj.AddComponent<BoxCollider> ();
-		//Add button under button
-		GameObject CloseButton = (GameObject)Instantiate(Resources.Load("DestroyBtnTopObj"));
-		CloseButton.transform.parent = obj.transform;
-		CloseButton.AddComponent<DestroyParentCube> ();
-		//
-	
-			obj.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 2f;
+		obj.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 6f;
+		obj.GetComponent<ARGridRealWorldScale> ().Resize ();
 		asseBundle.Unload (false);
 		MenuList.SetActive (false);
 	}

@@ -10,6 +10,9 @@ TagManager:
   - ARObjects
   - ARSessionCube
   - M1
+  - Xvalue
+  - Yvalue
+  - Zvalue
   layers:
   - Default
   - TransparentFX

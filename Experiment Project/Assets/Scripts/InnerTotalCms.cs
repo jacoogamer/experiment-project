@@ -99,7 +99,7 @@ public class InnerTotalCms : MonoBehaviour
             LineRend.GetComponent<SetGazeOnARPlane>().MeasureButtonOff = false;
         }
 
-            if (GetMeasurement.GetComponent<SetGazeOnARPlane>().numberOfLines >= 4 && ZPosMeasurment.GetComponent<CheckIFInnerBoxCollide>().BoxCollideTouching == true)
+            if (GetMeasurement.GetComponent<SetGazeOnARPlane>().numberOfLines >= 3 && ZPosMeasurment.GetComponent<CheckIFInnerBoxCollide>().BoxCollideTouching == true)
         {
 
             CalculateButtonObject.SetActive(true);
