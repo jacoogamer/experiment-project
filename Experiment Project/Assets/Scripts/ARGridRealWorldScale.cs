@@ -6,7 +6,7 @@ public class ARGridRealWorldScale : MonoBehaviour {
 
 
 
-	private InputField Xvalue, Yvalue, Zvalue;
+	public float XvalueCM = 100, YvalueCM = 100, ZvalueCM = 100;
 
 	void Start ()
 	{
@@ -19,9 +19,9 @@ public class ARGridRealWorldScale : MonoBehaviour {
 	{
 
 
-		this.gameObject.transform.localScale = new Vector3(float.Parse(GameObject.FindGameObjectWithTag("Xvalue").GetComponent<InputField>().text) / 100f, 
-			float.Parse(GameObject.FindGameObjectWithTag("Yvalue").GetComponent<InputField>().text) / 100f, 
-			float.Parse(GameObject.FindGameObjectWithTag("Zvalue").GetComponent<InputField>().text) / 100f);
+		this.gameObject.transform.localScale = new Vector3(XvalueCM / 100F, 
+			YvalueCM / 100F, 
+			ZvalueCM / 100F);
 
 	}
 }
